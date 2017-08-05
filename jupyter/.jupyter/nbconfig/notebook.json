@@ -1,0 +1,14 @@
+{
+  "load_extensions": {
+    "keyboard_shortcut_editor/main": true,
+    "contrib_nbextensions_help_item/main": true,
+    "nbextensions_configurator/config_menu/main": true
+  },
+  "keys": {
+    "command": {
+      "unbind": [
+        "d,d"
+      ]
+    }
+  }
+}

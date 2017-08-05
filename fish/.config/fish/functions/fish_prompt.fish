@@ -1,0 +1,1 @@
+/home/cjohnson/.config/fisherman/godfather/fish_prompt.fish

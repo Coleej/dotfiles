@@ -1,0 +1,13 @@
+name: default
+root: ~/
+windows:
+        - sys:
+                layout: 5328,80x38,0,0[80x38,0,0,0]
+                panes:
+                        - clear && htop
+        - py:
+                root: ~/Programing/30_python
+                layout: ddb9,80x38,0,0[80x22,0,0,4,80x15,0,23,5]
+                panes:
+                        - cd ~/Programming/30_python && clear && ipython --pylab --pprint
+                        - cd ~/Programming/30_python && clear

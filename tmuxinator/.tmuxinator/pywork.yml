@@ -1,0 +1,9 @@
+name: pywork
+root: ~/
+windows:
+        - pywork:
+                layout: aba9,137x44,0,0[137x27,0,0,2,137x16,0,28{68x16,0,28,3,68x16,69,28,4}]
+                panes:
+                        - cd ~/Programming/30_python > /dev/null & clear
+                        - cd ~/Programming/30_python > /dev/null & clear
+                        - cd ~/Programming/30_python/20_scratch & ipython
