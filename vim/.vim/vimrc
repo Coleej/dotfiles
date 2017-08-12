@@ -21,6 +21,8 @@ call plug#begin('~/.vim/plugged')
   Plug 'davidhalter/jedi-vim'
   Plug 'guns/xterm-color-table.vim'
   Plug 'dag/vim-fish'
+  Plug 'xolox/vim-session'
+  Plug 'xolox/vim-misc'
   
   " python plugins
   Plug 'python-mode/python-mode'
@@ -74,6 +76,10 @@ set autoindent
 " Turn off search highlighting
 noh
 
+" Vim-session
+nnoremap <leader>S :SaveSession 
+nnoremap <leader>O :OpenSession 
+let g:session_autoload = 'no'
 
 
 " NERDTree "
@@ -289,6 +295,7 @@ if has("autocmd")
     :au FileType vimwiki setlocal nonu
 
     " type settings mappings
+    :au FileType vimwiki noremap <buffer> <localleader>R :VimwikiRenameLink<CR>
     :au FileType vimwiki noremap <buffer> <localleader>b bi*<esc>ea*<esc>e
     :au FileType vimwiki noremap <buffer> <localleader>i bi_<esc>ea_<esc>e
 

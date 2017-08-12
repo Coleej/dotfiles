@@ -33,18 +33,22 @@ c = get_config()
 
 ## lines of code to run at IPython startup.
 c.InteractiveShellApp.exec_lines = [
+    'import sys',
     'import matplotlib as mpl',
     'import matplotlib.pyplot as plt',
     'import numpy as np',
     'import scipy as sci',
+    'import scipy.constants as consts',
     'import sympy as spy',
     'import pint as pt',
     'import pandas as pd',
     'from numpy import pi',
     'from numpy import e',
     'ureg = pt.UnitRegistry()',
-    'g = 9.81 * (ureg.m / ureg.s**2)',
-    'rho = 1025 * (ureg.kg / ureg.m**3)'
+    'g = consts.g * (ureg.m / ureg.s**2)',
+    'rho = 1025 * (ureg.kg / ureg.m**3)',
+    'sys.path.append("/home/cjohnson/Programming/30_python/01_custom_libs")',
+    'from CElib import *'
 ]
 
 ## A list of dotted module names of IPython extensions to load.
