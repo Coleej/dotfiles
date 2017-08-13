@@ -80,6 +80,7 @@ noh
 nnoremap <leader>S :SaveSession 
 nnoremap <leader>O :OpenSession 
 let g:session_autoload = 'no'
+let g:session_autosave = 'no'
 
 
 " NERDTree "
