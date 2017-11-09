@@ -1,1 +1,0 @@
-/home/cjohnson/.config/fisherman/choices/functions/choices.fish

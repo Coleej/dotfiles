@@ -1,1 +1,0 @@
-/home/cjohnson/.config/fisherman/get/completions/get.fish

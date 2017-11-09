@@ -1,1 +1,0 @@
-/home/cjohnson/.config/fisherman/termcolours/termcolours.fish
