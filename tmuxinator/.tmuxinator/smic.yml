@@ -1,0 +1,15 @@
+name: smic
+root: ~/
+windows:
+        - smic:
+                layout: 53adc,137x38,0,0[137x19,0,0,23,137x18,0,20,27]
+                panes:
+                        - ssh cjoh296@smic.hpc.lsu.edu
+                        - ssh cjoh296@smic.hpc.lsu.edu
+        - local:
+                root: ~/XBeach
+                layout: bcab,137x38,0,0[137x18,0,0,37,137x19,0,19{83x19,0,19,40,53x19,84,19,42}]
+                panes:
+                        - cd ~/XBeach/00_projects/10_xbeach
+                        - cd ~/XBeach/10_results & sftp cjoh296@smic.hpc.lsu.edu
+                        - cd ~/XBeach/10_results & matlab -nodesktop -nosplash -r "cd ~/XBeach/10_results" -r "oetsettings"

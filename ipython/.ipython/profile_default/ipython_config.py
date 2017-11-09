@@ -42,11 +42,16 @@ c.InteractiveShellApp.exec_lines = [
     'import sympy as spy',
     'import pint as pt',
     'import pandas as pd',
+    'from pyproj import Proj, transform',
     'from numpy import pi',
     'from numpy import e',
     'ureg = pt.UnitRegistry()',
     'g = consts.g * (ureg.m / ureg.s**2)',
     'rho = 1025 * (ureg.kg / ureg.m**3)',
+    'wgs84 = Proj(init="epsg:4326")',
+    'wgs84_merc = Proj(init="epsg:3857")',
+    'nad83_grs80 = Proj(init="epsg:4269")',
+    'utm15n = Proj(init="epsg:26915")',
     'sys.path.append("/home/cjohnson/Programming/30_python/01_custom_libs")',
     'from CElib import *'
 ]

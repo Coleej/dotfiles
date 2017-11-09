@@ -1,39 +1,23 @@
-function fish_prompt
-	set fish_greeting
-  set -l cyan (set_color -o cyan)
-  set -l yellow (set_color -o yellow)
-  set -l red (set_color -o red)
-  set -l blue (set_color -o blue)
-  set -l green (set_color -o green)
-  set -l normal (set_color normal)
+function fish_prompt --description 'Write out the prompt'
+	# Just calculate this once, to save a few cycles when displaying the prompt
+	if not set -q __fish_prompt_hostname
+		set -g __fish_prompt_hostname (hostname|cut -d . -f 1)
+	end
 
-  set -l cwd $cyan(basename (prompt_pwd))
+	set -l color_cwd
+	set -l suffix
+	switch $USER
+	case root toor
+		if set -q fish_color_cwd_root
+			set color_cwd $fish_color_cwd_root
+		else
+			set color_cwd $fish_color_cwd
+		end
+		set suffix '#'
+	case '*'
+		set color_cwd $fish_color_cwd
+		set suffix '>'
+	end
 
-  # output the prompt, left to right:
-  # Insert virtualenv
-
-  if set -q VIRTUAL_ENV
-    echo -n -s $normal "(" (basename "$VIRTUAL_ENV") ") "
-  end
-
-  # display 'user@host:'
-  echo -n -s $normal (whoami) $blue @ $blue (hostname|cut -d . -f 1) ": "
-
-  # display the current directory name:
-  echo -n -s $cwd $normal
-
-  # show git branch and dirty state, if applicable:
-  if [ (_git_branch_name) ]
-    set -l git_branch '[' (_git_branch_name) ']'
-
-    if [ (_is_git_dirty) ]
-      set git_info $red $git_branch "×"
-    else
-      set git_info $green $git_branch
-    end
-    echo -n -s ' ' $git_info $normal
-  end
-
-  # terminate with a nice prompt char:
-  echo -n -s ' » ' $normal
+	echo -n -s "$USER" @ "$__fish_prompt_hostname" ' ' (set_color $color_cwd) (prompt_pwd) (set_color normal) "$suffix "
 end

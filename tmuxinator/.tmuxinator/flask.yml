@@ -1,0 +1,8 @@
+name: flask
+root: ~/
+windows:
+        - flask:
+                layout: 1c50,81x68,0,0[81x38,0,0,0,81x29,0,39,2]
+                panes:
+                        - cd ~/Programming/30_python/70_flask/10_flasky & vf activate flask
+                        - cd ~/Programming/30_python/70_flask/10_flasky & vf activate flask

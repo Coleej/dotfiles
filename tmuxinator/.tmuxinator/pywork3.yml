@@ -1,0 +1,12 @@
+name: pywork2
+root: ~/
+windows:
+        - pywork:
+                layout: 1c50,81x68,0,0[81x38,0,0,0,81x29,0,39,2]
+                panes:
+                        - cd ~/Programming/30_python > /dev/null & clear
+                        - cd ~/Programming/30_python/20_scratch & ipython
+        - jupyter:
+                layout: cae0,81x68,0,0,3
+                panes:
+                        - cd ~/Programming/30_python/20_scratch & jupyter notebook

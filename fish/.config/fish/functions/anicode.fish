@@ -1,0 +1,1 @@
+/home/cjohnson/.config/fisherman/anicode/functions/anicode.fish

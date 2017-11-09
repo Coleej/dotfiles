@@ -4,6 +4,6 @@ windows:
         - home:
                 layout: 6abf,136x38,0,0[136x19,0,0,6,136x18,0,20{68x18,0,20,7,67x18,69,20,8}]
                 panes:
-                        - ssh pi && clear
-                        - ssh pi && clear
-                        - ssh pi && clear
+                        - ssh pi; clear
+                        - ssh pi; clear
+                        - ssh pi; clear

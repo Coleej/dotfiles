@@ -1,11 +1,8 @@
 " Configuration file for vim
 
-" Set shell for vim
 set shell=bash
 
 " vim-plug section "
-"++++++++++++++++++" 
-
 call plug#begin('~/.vim/plugged')
   Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
   Plug 'lervag/vimtex'
@@ -13,52 +10,35 @@ call plug#begin('~/.vim/plugged')
   Plug 'vimwiki/vimwiki'
   Plug 'mattn/calendar-vim'
   Plug 'movitto/vim-vsearch'
-  " Plug 'jiangmiao/auto-pairs'
   Plug 'breuckelen/vim-resize'
   Plug 'Townk/vim-autoclose'
   Plug 'jszakmeister/vim-togglecursor'
   Plug 'KabbAmine/vullScreen.vim'
-  Plug 'davidhalter/jedi-vim'
   Plug 'guns/xterm-color-table.vim'
   Plug 'dag/vim-fish'
   Plug 'xolox/vim-session'
   Plug 'xolox/vim-misc'
+  Plug 'tpope/vim-fugitive'
   
   " python plugins
-  Plug 'python-mode/python-mode'
+  Plug 'davidhalter/jedi-vim'
   Plug 'jmcantrell/vim-virtualenv'
-  Plug 'powerline/powerline'
-  
-  " python tools for ale
-  "Plug 'hhatto/autopep8'
-  "Plug 'w0rp/ale'
-
+  Plug 'nvie/vim-flake8'
+  "Plug 'powerline/powerline'
 call plug#end()
 
-
-
-" Other settings "
-"################"
-
-" Syntax folding
+" ########## "
+" vim config "
+" ########## "
 set foldmethod=syntax
-
-" Turn off all bells
 set belloff=all
-
-" Enable plugins based on filetype
+set nu
+set wrap linebreak
+set grepprg=grep\ -nH\ $ "Set grep to always print file-names*
+set autoindent
 filetype plugin on
 syntax on
-
-" Set grep to always print file-names
-set grepprg=grep\ -nH\ $*
-
-" Turn line numbers on
-set nu
-
-" Turn on soft word wrapping
-set wrap linebreak list
-
+noh
 
 " Turn off menu/tool bar and Set gui font
 if has("gui_running")
@@ -70,22 +50,31 @@ if has("gui_running")
   set guioptions -=b
 endif
 
-" Automatic indention
-set autoindent
+"  abbreviations "
+:iabbrev adn and
+:iabbrev waht what
+:iabbrev tehn then
+:iabbrev @@1 codyjohnson144@gmail.com
+:iabbrev @@2 cjoh296@lsu.edu
 
-" Turn off search highlighting
-noh
 
-" Vim-session
+" Plugin configurations
+
+" jedi-vim "
+" -------- "
+
+
+" Vim-session "
+" ----------- "
 nnoremap <leader>S :SaveSession 
 nnoremap <leader>O :OpenSession 
 let g:session_autoload = 'no'
 let g:session_autosave = 'no'
 
-
 " NERDTree "
 " -------- "
 let g:NERDTreeWinSize = 52
+
 au bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 
 " function to open NERDTree depending on filetype
@@ -100,38 +89,25 @@ function! s:CheckToOpenNERDTree() abort
 
 endfunction
 
-
 " vimwiki "
-" ####### "
+" ------- "
 let g:vimwiki_list = [{'path': '~/.vimwiki',
        \ 'path_html': '~/.vimwiki/html',
        \ 'template_path': '~/.vimwiki/templates/',
        \ 'template_default': 'def_template',
        \ 'template_ext': '.html'}]
 
+" template macros
+" literature review notes
+nnoremap <leader>tl i= Synopsis = <cr><cr><cr>= Conclusions =<cr><cr><cr>= Criticisms =<cr><cr><cr>= Notes =<cr>* 
 
+" meetings
+nnoremap <leader>tm i= File = <cr>[[file:~/Documents/05_meetings/10_research_group/2017-/draft.odp]]<cr>[[file:~/Documents/05_meetings/10_research_group/2017-/report.pdf]]<cr><cr>= Notes =<cr>* <cr><cr>= TODO =<cr>1. [ ] <esc>kkka
 
-" vimtex options "
-"################"
+" vimtex "
+" ------ "
 let g:tex_flavor = 'pdflatex'
 let g:vimtex_view_method = 'mupdf' 
-
-" vimtex custom mappings
-nmap <localleader>lh <plug>(vimtex-compile-ss)
-nmap <localleader>la <plug>(vimtex-lacheck)
-
-
-
-
-
-"  abbreviations "
-"################"
-:iabbrev adn and
-:iabbrev waht what
-:iabbrev tehn then
-:iabbrev @@1 codyjohnson144@gmail.com
-:iabbrev @@2 cjoh296@lsu.edu
-
 
 
 " generic key mappings "
@@ -141,6 +117,7 @@ let maplocalleader = "`"
 
 " miscellaneous 
 nnoremap <leader>L :set list!<CR>
+setlocal nolist
 set listchars=tab:▶\ ,eol:¬
 
 " Toggles
@@ -149,6 +126,8 @@ nnoremap <leader>n :set hlsearch!<CR>
 nnoremap <leader>nn :set nu!<CR>
 nnoremap <localleader>cal :Calendar<CR>
 nnoremap <leader>sp :set spell!
+nnoremap <localleader>lh <plug>(vimtex-compile-ss)
+nnoremap <localleader>la <plug>(vimtex-lacheck)
 
 " Cycle buffers
 nnoremap <leader><Tab> :bnext!<CR>
@@ -159,12 +138,6 @@ nmap <silent> <C-h> :wincmd h<CR>
 nmap <silent> <C-k> :wincmd k<CR>
 nmap <silent> <C-j> :wincmd j<CR>
 nmap <silent> <C-l> :wincmd l<CR>
-
-" Resize split windows
-"nnoremap <M-l> <C-w><
-"nnoremap <M-j> <C-w>+
-"nnoremap <M-k> <C-w>-
-"nnoremap <M-h> <C-w>>
 
 " disable arrow keys
 noremap <Left> <nop>
@@ -218,10 +191,6 @@ onoremap b /return<cr>
 :onoremap in( :<c-u>normal! f(vi(<cr>
 :onoremap il( :<c-u>normal! F)vi(<cr>
 
-if exists('g:pymode_python')
-	let foo='bar'
-endif
-
 "###################"
 " Filetype settings "
 "###################"
@@ -233,26 +202,13 @@ if has("autocmd")
   " Python
   :augroup filetype_python
     :autocmd!
-
-    " python-mode 
-    "-------------
-    :au FileType python let g:pymode_rope = 0           "turn off rope to use jedi
-    :au FileType python let g:pymode_rope_goto_definition_cmd = 'e'
-    :au FileType python nnoremap <buffer> <localleader>r :PymodeRun<cr>
-    :au FileType python noremap <buffer> <localleader>li :PymodeLintToggle<CR>
-    :au FileType python nnoremap <buffer> <localleader>k <C-w>z
-    :au FileType python nunmap <buffer> K
-    :au FileType python nnoremap <buffer> <localleader>d :call pymode#doc#find()<CR>
-    :au FileType python vnoremap <buffer> <localleader>d :<C-U>call pymode#doc#show(@*)<CR>
-        
-      :if exists('qgis')               "use python2 with qgis
-        :au FileType python let g:pymode_python = 'python'
-      :endif
-
-    :au FileType python set completeopt=menu
     :au FileType python nnoremap <buffer> <localleader>c I#<space><esc>
+    ":au BufWritePost *.py call Flake8()
+    :au FileType python let g:jedi#documentation_command = "U"
   :augroup END
 
+  
+  
   " (ba)sh
   :augroup filetype_sh
     :autocmd!
@@ -261,12 +217,17 @@ if has("autocmd")
     :au FileType sh set sw=2
   :augroup END
 
+  
+  
   " Latex
   :augroup filetype_latex
     :autocmd!
     :au FileType tex let g:vimtex_quickfix_open_on_warning=0
     :au FileType tex setlocal spell spelllang=en_us
   :augroup END
+  
+  
+  
   " C
   :augroup filetype_c
     :autocmd!
@@ -274,6 +235,8 @@ if has("autocmd")
     :au FileType c setlocal ts=2 sts=2 sw=2 expandtab
   :augroup END
 
+  
+  
   " txt
   :augroup filetype_txt
     :autocmd! 
