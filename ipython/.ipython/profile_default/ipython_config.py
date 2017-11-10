@@ -51,15 +51,12 @@ c.InteractiveShellApp.exec_lines = [
     'wgs84 = Proj(init="epsg:4326")',
     'wgs84_merc = Proj(init="epsg:3857")',
     'nad83_grs80 = Proj(init="epsg:4269")',
-    'utm15n = Proj(init="epsg:26915")',
-    'sys.path.append("/home/cjohnson/Programming/30_python/01_custom_libs")',
-    'from CElib import *'
+    'utm15n = Proj(init="epsg:26915")'
 ]
 
 ## A list of dotted module names of IPython extensions to load.
 c.InteractiveShellApp.extensions = [
     'duster',
-    'ipython_autoimport',
     'grasp'
 ]
 
