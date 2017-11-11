@@ -4,6 +4,7 @@ set shell=bash
 
 " vim-plug section "
 call plug#begin('~/.vim/plugged')
+  
   Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
   Plug 'lervag/vimtex'
   Plug 'Konfekt/FastFold'
@@ -19,12 +20,14 @@ call plug#begin('~/.vim/plugged')
   Plug 'xolox/vim-session'
   Plug 'xolox/vim-misc'
   Plug 'tpope/vim-fugitive'
+  Plug 'Xuyuanp/nerdtree-git-plugin'
   
   " python plugins
   Plug 'davidhalter/jedi-vim'
   Plug 'jmcantrell/vim-virtualenv'
   Plug 'nvie/vim-flake8'
   "Plug 'powerline/powerline'
+
 call plug#end()
 
 " ########## "
