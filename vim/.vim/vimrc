@@ -10,6 +10,7 @@ call plug#begin('~/.vim/plugged')
   Plug 'Konfekt/FastFold'
   Plug 'vimwiki/vimwiki'
   Plug 'mattn/calendar-vim'
+  Plug 'blindFS/vim-taskwarrior'
   Plug 'movitto/vim-vsearch'
   Plug 'breuckelen/vim-resize'
   Plug 'Townk/vim-autoclose'
