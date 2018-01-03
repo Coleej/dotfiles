@@ -4,7 +4,8 @@ set shell=bash
 
 " vim-plug section "
 call plug#begin('~/.vim/plugged')
-  
+
+  Plug 'vim-airline/vim-airline'
   Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
   Plug 'lervag/vimtex'
   Plug 'Konfekt/FastFold'
