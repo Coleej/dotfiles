@@ -25,6 +25,7 @@ function fish_prompt
   set -l red (set_color -o red)
   set -l blue (set_color -o blue)
   set -l magenta (set_color -o magenta)
+  set -l orange (set_color -o ffa500)
   set -l green (set_color -o green)
   set -l normal (set_color normal)
 
@@ -35,7 +36,7 @@ function fish_prompt
     case dell-desk
       set -g host_color $blue
     case media
-      set -g host_color $yellow
+      set -g host_color $orange
     case pi
       set -g host_color $magenta
     case *
