@@ -59,13 +59,31 @@ c.InteractiveShellApp.exec_lines = [
 ## A list of dotted module names of IPython extensions to load.
 c.InteractiveShellApp.extensions = [
     'duster',
-    'grasp'
+    'grasp',
 ]
 
 ## Duster configuration
-c.DusterMagic.modules = [('matplotlib', 'mpl'), ('matplotlib.pyplot', 'plt'),
-                         ('pandas', 'pd'), ('pint', 'pt'), ('numpy', 'np'),
-                         ('sympy', 'spy'), ('scipy', 'sci')]
+c.DusterMagic.modules = [
+    ('matplotlib', 'mpl'),
+    ('matplotlib.pyplot', 'plt'),
+    ('pandas', 'pd'),
+    ('pint', 'pt'),
+    ('numpy', 'np'),
+    ('sympy', 'spy'),
+    ('scipy', 'sci')
+]
+
+c.DusterMagic.ignore = [
+    'pi',
+    'e',
+    'ureg',
+    'g',
+    'rho',
+    'wgs84',
+    'wgs84_merc',
+    'nad83_grs80',
+    'utm15n'
+]
 
 ## dotted module name of an IPython extension to load.
 #c.InteractiveShellApp.extra_extension = ''
