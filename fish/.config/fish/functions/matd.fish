@@ -1,3 +1,3 @@
-function matlabd
+function matd
   matlab -nosplash
 end
