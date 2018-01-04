@@ -1,1 +1,2 @@
 fish/.config/fish/functions/vim.fish
+*.swp
