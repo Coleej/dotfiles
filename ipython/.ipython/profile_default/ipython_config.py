@@ -5,21 +5,18 @@
 #------------------------------------------------------------------------------
 
 ## A Mixin for applications that start InteractiveShell instances.
-#
+#  
 #  Provides configurables for loading extensions and executing files as part of
 #  configuring a Shell environment.
-#
+#  
 #  The following methods should be called by the :meth:`initialize` method of the
 #  subclass:
-#
+#  
 #    - :meth:`init_path`
 #    - :meth:`init_shell` (to be implemented by the subclass)
 #    - :meth:`init_gui_pylab`
 #    - :meth:`init_extensions`
 #    - :meth:`init_code`
-
-# Get root config object
-c = get_config()
 
 ## Execute the given command string.
 #c.InteractiveShellApp.code_to_run = ''
@@ -32,58 +29,10 @@ c = get_config()
 #c.InteractiveShellApp.exec_files = []
 
 ## lines of code to run at IPython startup.
-c.InteractiveShellApp.exec_lines = [
-    'import sys',
-    'import os',
-    'import matplotlib as mpl',
-    'import matplotlib.pyplot as plt',
-    'import numpy as np',
-    'import scipy as sci',
-    'import scipy.constants as consts',
-    'import sympy as spy',
-    'import pint as pt',
-    'import pandas as pd',
-    'from datetime import datetime as dt',
-    'from pyproj import Proj, transform',
-    'from numpy import pi',
-    'from numpy import e',
-    'ureg = pt.UnitRegistry()',
-    'g = consts.g * (ureg.m / ureg.s**2)',
-    'rho = 1025 * (ureg.kg / ureg.m**3)',
-    'wgs84 = Proj(init="epsg:4326")',
-    'wgs84_merc = Proj(init="epsg:3857")',
-    'nad83_grs80 = Proj(init="epsg:4269")',
-    'utm15n = Proj(init="epsg:26915")'
-]
+#c.InteractiveShellApp.exec_lines = []
 
 ## A list of dotted module names of IPython extensions to load.
-c.InteractiveShellApp.extensions = [
-    'duster',
-    'grasp',
-]
-
-## Duster configuration
-c.DusterMagic.modules = [
-    ('matplotlib', 'mpl'),
-    ('matplotlib.pyplot', 'plt'),
-    ('pandas', 'pd'),
-    ('pint', 'pt'),
-    ('numpy', 'np'),
-    ('sympy', 'spy'),
-    ('scipy', 'sci')
-]
-
-c.DusterMagic.ignore = [
-    'pi',
-    'e',
-    'ureg',
-    'g',
-    'rho',
-    'wgs84',
-    'wgs84_merc',
-    'nad83_grs80',
-    'utm15n'
-]
+#c.InteractiveShellApp.extensions = []
 
 ## dotted module name of an IPython extension to load.
 #c.InteractiveShellApp.extra_extension = ''
@@ -93,7 +42,7 @@ c.DusterMagic.ignore = [
 
 ## Enable GUI event loop integration with any of ('glut', 'gtk', 'gtk2', 'gtk3',
 #  'osx', 'pyglet', 'qt', 'qt4', 'qt5', 'tk', 'wx', 'gtk2', 'qt4').
-#c.InteractiveShellApp.gui = 'tk'
+#c.InteractiveShellApp.gui = None
 
 ## Should variables loaded at startup (by startup files, exec_lines, etc.) be
 #  hidden from tools like %who?
@@ -103,15 +52,15 @@ c.DusterMagic.ignore = [
 #c.InteractiveShellApp.matplotlib = None
 
 ## Run the module as a script.
-#c.InteractiveShellApp.module_to_run = 'agg'
+#c.InteractiveShellApp.module_to_run = ''
 
 ## Pre-load matplotlib and numpy for interactive use, selecting a particular
 #  matplotlib backend and loop integration.
-#c.InteractiveShellApp.pylab = 'auto'
+#c.InteractiveShellApp.pylab = None
 
 ## If true, IPython will populate the user namespace with numpy, pylab, etc. and
 #  an ``import *`` is done from numpy and pylab, when using pylab mode.
-#
+#  
 #  When False, pylab mode should not import any names into the user namespace.
 #c.InteractiveShellApp.pylab_import_all = True
 
@@ -149,7 +98,7 @@ c.DusterMagic.ignore = [
 #c.BaseIPythonApplication.copy_config_files = False
 
 ## Path to an extra config file to load.
-#
+#  
 #  If specified, load this config file in addition to any other IPython config.
 #c.BaseIPythonApplication.extra_config_file = ''
 
@@ -193,8 +142,8 @@ c.DusterMagic.ignore = [
 
 ## An enhanced, interactive shell for Python.
 
-## 'all', 'last', 'last_expr' or 'none', specifying which nodes should be run
-#  interactively (displaying output from expressions).
+## 'all', 'last', 'last_expr' or 'none', 'last_expr_or_assign' specifying which
+#  nodes should be run interactively (displaying output from expressions).
 #c.InteractiveShell.ast_node_interactivity = 'last_expr'
 
 ## A list of ast.NodeTransformer subclass instances, which will be applied to
@@ -216,7 +165,7 @@ c.DusterMagic.ignore = [
 #c.InteractiveShell.automagic = True
 
 ## The part of the banner to be printed before the profile
-#c.InteractiveShell.banner1 = "Python 3.5.3 (default, May 10 2017, 15:05:55) \nType 'copyright', 'credits' or 'license' for more information\nIPython 6.1.0 -- An enhanced Interactive Python. Type '?' for help.\n"
+#c.InteractiveShell.banner1 = "Python 3.5.2 (default, Nov 23 2017, 16:37:01) \nType 'copyright', 'credits' or 'license' for more information\nIPython 6.2.1 -- An enhanced Interactive Python. Type '?' for help.\n"
 
 ## The part of the banner to be printed after the profile
 #c.InteractiveShell.banner2 = ''
@@ -237,7 +186,7 @@ c.DusterMagic.ignore = [
 ## Set the color scheme (NoColor, Neutral, Linux, or LightBG).
 #c.InteractiveShell.colors = 'Neutral'
 
-##
+## 
 #c.InteractiveShell.debug = False
 
 ## Don't call post-execute functions that have failed in the past.
@@ -257,7 +206,7 @@ c.DusterMagic.ignore = [
 #  startup.
 #c.InteractiveShell.history_load_length = 1000
 
-##
+## 
 #c.InteractiveShell.ipython_dir = ''
 
 ## Start logging to the given file in append mode. Use `logfile` to specify a log
@@ -271,7 +220,7 @@ c.DusterMagic.ignore = [
 #  specify a log file to **append** logs to.
 #c.InteractiveShell.logstart = False
 
-##
+## 
 #c.InteractiveShell.object_info_string_level = 0
 
 ## Automatically call the pdb debugger after every exception.
@@ -293,16 +242,16 @@ c.DusterMagic.ignore = [
 #  TerminalInteractiveShell.prompts object directly.
 #c.InteractiveShell.prompts_pad_left = True
 
-##
+## 
 #c.InteractiveShell.quiet = False
 
-##
+## 
 #c.InteractiveShell.separate_in = '\n'
 
-##
+## 
 #c.InteractiveShell.separate_out = ''
 
-##
+## 
 #c.InteractiveShell.separate_out2 = ''
 
 ## Show rewritten input, e.g. for autocall.
@@ -312,7 +261,7 @@ c.DusterMagic.ignore = [
 #  module).
 #c.InteractiveShell.sphinxify_docstring = False
 
-##
+## 
 #c.InteractiveShell.wildcards_case_sensitive = True
 
 ## Switch modes for the IPython exception handlers.
@@ -336,7 +285,7 @@ c.DusterMagic.ignore = [
 #c.TerminalInteractiveShell.editing_mode = 'emacs'
 
 ## Set the editor used by IPython (default to $EDITOR/vi/notepad).
-#c.TerminalInteractiveShell.editor = 'vim'
+#c.TerminalInteractiveShell.editor = 'vi'
 
 ## Enable vi (v) or Emacs (C-X C-E) shortcuts to open an external editor. This is
 #  in addition to the F2 binding, which is always enabled.
@@ -351,25 +300,26 @@ c.DusterMagic.ignore = [
 #c.TerminalInteractiveShell.highlight_matching_brackets = True
 
 ## The name or class of a Pygments style to use for syntax
-#         highlighting:
-#  algol_nu, autumn, murphy, paraiso-dark, tango, rrt, rainbow_dash, abap, trac, emacs, default, igor, paraiso-light, arduino, monokai, xcode, friendly, bw, fruity, borland, native, colorful, lovelace, perldoc, algol, pastie, vim, manni, vs
+#         highlighting: 
+#  fruity, vs, paraiso-dark, bw, igor, borland, murphy, perldoc, emacs, abap, friendly, algol, trac, colorful, algol_nu, arduino, default, vim, rainbow_dash, autumn, lovelace, monokai, native, pastie, tango, rrt, xcode, paraiso-light, manni
 #c.TerminalInteractiveShell.highlighting_style = traitlets.Undefined
 
 ## Override highlighting format for specific tokens
 #c.TerminalInteractiveShell.highlighting_style_overrides = {}
 
-## Enable mouse support in the prompt
+## Enable mouse support in the prompt (Note: prevents selecting text with the
+#  mouse)
 #c.TerminalInteractiveShell.mouse_support = False
 
 ## Class used to generate Prompt token for prompt_toolkit
 #c.TerminalInteractiveShell.prompts_class = 'IPython.terminal.prompts.Prompts'
 
 ## Use `raw_input` for the REPL, without completion and prompt colors.
-#
+#  
 #  Useful when controlling IPython as a subprocess, and piping STDIN/OUT/ERR.
 #  Known usage are: IPython own testing machinery, and emacs inferior-shell
 #  integration through elpy.
-#
+#  
 #  This mode default to `True` if the `IPY_TEST_SIMPLE_PROMPT` environment
 #  variable is set, or the current terminal is not a tty.
 #c.TerminalInteractiveShell.simple_prompt = False
@@ -394,35 +344,35 @@ c.DusterMagic.ignore = [
 #------------------------------------------------------------------------------
 
 ## Access the history database without adding to it.
-#
+#  
 #  This is intended for use by standalone history tools. IPython shells use
 #  HistoryManager, below, which is a subclass of this.
 
 ## Options for configuring the SQLite connection
-#
+#  
 #  These options are passed as keyword args to sqlite3.connect when establishing
 #  database conenctions.
 #c.HistoryAccessor.connection_options = {}
 
 ## enable the SQLite history
-#
+#  
 #  set enabled=False to disable the SQLite history, in which case there will be
 #  no stored history, no SQLite connection, and no background saving thread.
 #  This may be necessary in some threaded environments where IPython is embedded.
 #c.HistoryAccessor.enabled = True
 
 ## Path to file to use for SQLite history database.
-#
+#  
 #  By default, IPython will put the history database in the IPython profile
 #  directory.  If you would rather share one history among profiles, you can set
 #  this value in each, so that they are consistent.
-#
+#  
 #  Due to an issue with fcntl, SQLite is known to misbehave on some NFS mounts.
 #  If you see IPython hanging, try setting this to something on a local disk,
 #  e.g::
-#
+#  
 #      ipython --HistoryManager.hist_file=/tmp/ipython_hist.sqlite
-#
+#  
 #  you can also use the specific value `:memory:` (including the colon at both
 #  end but not the back ticks), to avoid creating an history file.
 #c.HistoryAccessor.hist_file = ''
@@ -445,10 +395,10 @@ c.DusterMagic.ignore = [
 #------------------------------------------------------------------------------
 
 ## An object to manage the profile directory and its resources.
-#
+#  
 #  The profile directory is used by all IPython applications, to manage
 #  configuration, logging and security.
-#
+#  
 #  This object knows how to find, create and manage these directories. This
 #  should be used by any code that wants to handle profiles.
 
@@ -461,37 +411,37 @@ c.DusterMagic.ignore = [
 #------------------------------------------------------------------------------
 
 ## A base formatter class that is configurable.
-#
+#  
 #  This formatter should usually be used as the base class of all formatters. It
 #  is a traited :class:`Configurable` class and includes an extensible API for
 #  users to determine how their objects are formatted. The following logic is
 #  used to find a function to format an given object.
-#
+#  
 #  1. The object is introspected to see if it has a method with the name
 #     :attr:`print_method`. If is does, that object is passed to that method
 #     for formatting.
 #  2. If no print method is found, three internal dictionaries are consulted
 #     to find print method: :attr:`singleton_printers`, :attr:`type_printers`
 #     and :attr:`deferred_printers`.
-#
+#  
 #  Users should use these dictionaries to register functions that will be used to
 #  compute the format data for their objects (if those objects don't have the
 #  special print methods). The easiest way of using these dictionaries is through
 #  the :meth:`for_type` and :meth:`for_type_by_name` methods.
-#
+#  
 #  If no function/callable is found to compute the format data, ``None`` is
 #  returned and this format type is not used.
 
-##
+## 
 #c.BaseFormatter.deferred_printers = {}
 
-##
+## 
 #c.BaseFormatter.enabled = True
 
-##
+## 
 #c.BaseFormatter.singleton_printers = {}
 
-##
+## 
 #c.BaseFormatter.type_printers = {}
 
 #------------------------------------------------------------------------------
@@ -499,12 +449,12 @@ c.DusterMagic.ignore = [
 #------------------------------------------------------------------------------
 
 ## The default pretty-printer.
-#
+#  
 #  This uses :mod:`IPython.lib.pretty` to compute the format data of the object.
 #  If the object cannot be pretty printed, :func:`repr` is used. See the
 #  documentation of :mod:`IPython.lib.pretty` for details on how to write pretty
 #  printers.  Here is a simple example::
-#
+#  
 #      def dtype_pprinter(obj, p, cycle):
 #          if cycle:
 #              return p.text('dtype(...)')
@@ -520,24 +470,24 @@ c.DusterMagic.ignore = [
 #                      p.pretty(field)
 #                  p.end_group(7, '])')
 
-##
+## 
 #c.PlainTextFormatter.float_precision = ''
 
 ## Truncate large collections (lists, dicts, tuples, sets) to this size.
-#
+#  
 #  Set to 0 to disable truncation.
 #c.PlainTextFormatter.max_seq_length = 1000
 
-##
+## 
 #c.PlainTextFormatter.max_width = 79
 
-##
+## 
 #c.PlainTextFormatter.newline = '\n'
 
-##
+## 
 #c.PlainTextFormatter.pprint = True
 
-##
+## 
 #c.PlainTextFormatter.verbose = False
 
 #------------------------------------------------------------------------------
@@ -555,7 +505,7 @@ c.DusterMagic.ignore = [
 
 ## Activate greedy completion PENDING DEPRECTION. this is now mostly taken care
 #  of with Jedi.
-#
+#  
 #  This will enable completion on elements of lists, results of function calls,
 #  etc., but can be unsafe because the code is actually evaluated on TAB.
 #c.Completer.greedy = False
@@ -576,30 +526,30 @@ c.DusterMagic.ignore = [
 ## Extension of the completer class with IPython-specific features
 
 ## DEPRECATED as of version 5.0.
-#
+#  
 #  Instruct the completer to use __all__ for the completion
-#
+#  
 #  Specifically, when completing on ``object.<tab>``.
-#
+#  
 #  When True: only those names in obj.__all__ will be included.
-#
+#  
 #  When False [default]: the __all__ attribute is ignored
 #c.IPCompleter.limit_to__all__ = False
 
 ## Whether to merge completion results into a single list
-#
+#  
 #  If False, only the completion results from the first non-empty completer will
 #  be returned.
 #c.IPCompleter.merge_completions = True
 
 ## Instruct the completer to omit private method names
-#
+#  
 #  Specifically, when completing on ``object.<tab>``.
-#
+#  
 #  When 2 [default]: all names that start with '_' will be excluded.
-#
+#  
 #  When 1: all 'magic' names (``__foo__``) will be excluded.
-#
+#  
 #  When 0: nothing will be excluded.
 #c.IPCompleter.omit__names = 2
 
@@ -608,21 +558,21 @@ c.DusterMagic.ignore = [
 #------------------------------------------------------------------------------
 
 ## Magics for talking to scripts
-#
+#  
 #  This defines a base `%%script` cell magic for running a cell with a program in
 #  a subprocess, and registers a few top-level magics that call %%script with
 #  common interpreters.
 
 ## Extra script cell magics to define
-#
+#  
 #  This generates simple wrappers of `%%script foo` as `%%foo`.
-#
+#  
 #  If you want to add script magics that aren't on your path, specify them in
 #  script_paths
 #c.ScriptMagics.script_magics = []
 
 ## Dict mapping short 'ruby' names to full paths, such as '/opt/secret/bin/ruby'
-#
+#  
 #  Only necessary for items in script_magics where the default path will not find
 #  the right interpreter.
 #c.ScriptMagics.script_paths = {}
@@ -641,7 +591,7 @@ c.DusterMagic.ignore = [
 #------------------------------------------------------------------------------
 
 ## Lightweight persistence for python variables.
-#
+#  
 #  Provides the %store magic.
 
 ## If True, any %store-d variables will be automatically restored when IPython
