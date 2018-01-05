@@ -37,6 +37,7 @@ c.InteractiveShellApp.exec_lines = [
     'import os',
     'import matplotlib as mpl',
     'import matplotlib.pyplot as plt',
+    'plt.ion()',
     'import numpy as np',
     'import scipy as sci',
     'import scipy.constants as consts',
