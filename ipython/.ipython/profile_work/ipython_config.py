@@ -244,7 +244,7 @@ c.InteractiveShell.colors = 'Linux'
 #c.InteractiveShell.logappend = ''
 
 ## The name of the logfile to use.
-#c.InteractiveShell.logfile = ''
+c.InteractiveShell.logfile = '~/.ipython/profile_work/log/ipython_log.py'
 
 ## Start logging to the default log file in overwrite mode. Use `logappend` to
 #  specify a log file to **append** logs to.
