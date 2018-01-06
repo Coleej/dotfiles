@@ -152,7 +152,7 @@ c.InteractiveShellApp.hide_initial_ns = False
 ## Path to an extra config file to load.
 #
 #  If specified, load this config file in addition to any other IPython config.
-#c.BaseIPythonApplication.extra_config_file = ''
+c.BaseIPythonApplication.extra_config_file = '~/.ipython/profile_default/ipython_config.py'
 
 ## The name of the IPython directory. This directory is used for logging
 #  configuration (through profiles), history storage, etc. The default is usually
