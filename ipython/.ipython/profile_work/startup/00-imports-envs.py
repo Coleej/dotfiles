@@ -15,9 +15,6 @@ import matplotlib as mpl
 import matplotlib.pyplot as plt
 plt.ion()
 
-with redirect_stdout(open(os.devnull, "w")):
-    precision 4
-
 ureg = pt.UnitRegistry()
 g = consts.g * (ureg.m / ureg.s**2)
 rho = 1025 * (ureg.kg / ureg.m**3)

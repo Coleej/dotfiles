@@ -32,30 +32,8 @@ c = get_config()
 #c.InteractiveShellApp.exec_files = []
 
 ## lines of code to run at IPython startup.
-c.InteractiveShellApp.exec_lines = [
-    'import sys',
-    'import os',
-    'import matplotlib as mpl',
-    'import matplotlib.pyplot as plt',
-    'plt.ion()',
-    'import numpy as np',
-    'import scipy as sci',
-    'import scipy.constants as consts',
-    'import sympy as spy',
-    'import pint as pt',
-    'import pandas as pd',
-    'from datetime import datetime as dt',
-    'from pyproj import Proj, transform',
-    'from numpy import pi',
-    'from numpy import e',
-    'ureg = pt.UnitRegistry()',
-    'g = consts.g * (ureg.m / ureg.s**2)',
-    'rho = 1025 * (ureg.kg / ureg.m**3)',
-    'wgs84 = Proj(init="epsg:4326")',
-    'wgs84_merc = Proj(init="epsg:3857")',
-    'nad83_grs80 = Proj(init="epsg:4269")',
-    'utm15n = Proj(init="epsg:26915")'
-]
+#c.InteractiveShellApp.exec_lines = []
+
 
 ## A list of dotted module names of IPython extensions to load.
 c.InteractiveShellApp.extensions = [
@@ -522,7 +500,7 @@ c.InteractiveShell.colors = 'Linux'
 #                  p.end_group(7, '])')
 
 ##
-#c.PlainTextFormatter.float_precision = ''
+c.PlainTextFormatter.float_precision = '3'
 
 ## Truncate large collections (lists, dicts, tuples, sets) to this size.
 #
