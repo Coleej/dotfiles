@@ -12,6 +12,8 @@ from numpy import pi
 from numpy import e
 
 import matplotlib as mpl
+mpl.use('gtk3cairo')
+
 import matplotlib.pyplot as plt
 plt.ion()
 
