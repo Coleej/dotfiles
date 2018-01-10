@@ -34,6 +34,7 @@ c = get_config()
 ## lines of code to run at IPython startup.
 c.InteractiveShellApp.exec_lines = [
     'import sys',
+    'import os',
     'import matplotlib as mpl',
     'import matplotlib.pyplot as plt',
     'import numpy as np',
@@ -42,6 +43,7 @@ c.InteractiveShellApp.exec_lines = [
     'import sympy as spy',
     'import pint as pt',
     'import pandas as pd',
+    'from datetime import datetime as dt',
     'from pyproj import Proj, transform',
     'from numpy import pi',
     'from numpy import e',
