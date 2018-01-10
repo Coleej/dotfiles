@@ -1,4 +1,4 @@
-# fish theme: goddy
+# fish theme: modified goddy
 
 function _git_branch_name
   echo (command git symbolic-ref HEAD ^/dev/null | sed -e 's|^refs/heads/||')
@@ -24,8 +24,24 @@ function fish_prompt
   set -l yellow (set_color -o yellow)
   set -l red (set_color -o red)
   set -l blue (set_color -o blue)
+  set -l magenta (set_color -o magenta)
+  set -l orange (set_color -o ffa500)
   set -l green (set_color -o green)
   set -l normal (set_color normal)
+
+  # change color by hostname
+  switch (hostname)
+    case mobile
+      set -g host_color $green
+    case dell-desk
+      set -g host_color $blue
+    case media
+      set -g host_color $orange
+    case pi
+      set -g host_color $magenta
+    case *
+      set -g host_color $yellow
+  end
 
   set -l cwd $cyan(basename (prompt_pwd))
 
@@ -35,7 +51,7 @@ function fish_prompt
   end
   
   # display 'user@host:'
-  echo -n -s $green (whoami) $dark_green @ $green (hostname|cut -d . -f 1) ": "
+  echo -n -s $green (whoami) @ $host_color (hostname|cut -d . -f 1) ": "
 
   # display the current directory name:
   echo -n -s $cwd $normal
