@@ -8,7 +8,7 @@ if [ ! -d ~/.ipython ]; then
 	echo "ipython and profile_default directories don't exist."
 	echo "creating both directories."
 	mkdir -p ~/.ipython/profile_default/startup
-	mkdir -p ~/.ipython/work/startup
+	mkdir -p ~/.ipython/profile_work/startup
 
 else
 	
@@ -19,9 +19,9 @@ else
 	fi
 
 	if [ ! -d ~/.ipython/work ]; then
-		echo "work directory doesn't exist."
+		echo "profile_work directory doesn't exist."
 		echo "creating directory."
-		mkdir -p ~/.ipython/work/startup
+		mkdir -p ~/.ipython/profile_work/startup
 	fi
 
 fi
