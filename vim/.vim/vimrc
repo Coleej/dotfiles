@@ -6,6 +6,7 @@ set shell=bash
 call plug#begin('~/.vim/plugged')
 
   Plug 'vim-airline/vim-airline'
+  Plug 'vim-airline/vim-airline-themes'
   Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
   Plug 'lervag/vimtex'
   Plug 'Konfekt/FastFold'
@@ -28,7 +29,6 @@ call plug#begin('~/.vim/plugged')
   Plug 'davidhalter/jedi-vim'
   Plug 'jmcantrell/vim-virtualenv'
   Plug 'nvie/vim-flake8'
-  "Plug 'powerline/powerline'
 
 call plug#end()
 
@@ -64,6 +64,11 @@ endif
 
 
 " Plugin configurations
+
+" vim-airline "
+" ----------- "
+let g:airline#extensions#tabline#enabled = 1
+let g:airline_theme='luna'
 
 " jedi-vim "
 " -------- "
