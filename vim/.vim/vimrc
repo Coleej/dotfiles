@@ -201,6 +201,14 @@ onoremap b /return<cr>
 :onoremap in( :<c-u>normal! f(vi(<cr>
 :onoremap il( :<c-u>normal! F)vi(<cr>
 
+" Plugin mappings "
+" ----------------"
+" fugitive "
+" -------- "
+nnoremap <leader>gc :Gcommit -a<cr>
+nnoremap <leader>gs :Gstatus<cr>
+nnoremap <leader>gp :Gpush<cr>
+
 "###################"
 " Filetype settings "
 "###################"
