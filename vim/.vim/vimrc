@@ -24,6 +24,9 @@ call plug#begin('~/.vim/plugged')
   Plug 'xolox/vim-misc'
   Plug 'tpope/vim-fugitive'
   Plug 'Xuyuanp/nerdtree-git-plugin'
+
+  " C plugins
+  Plug 'vim-syntastic/syntastic'
   
   " python plugins
   Plug 'davidhalter/jedi-vim'
@@ -73,6 +76,12 @@ let g:airline_theme='luna'
 " jedi-vim "
 " -------- "
 
+" syntastic "
+" --------- "
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 0
 
 " Vim-session "
 " ----------- "
@@ -208,6 +217,11 @@ onoremap b /return<cr>
 nnoremap <leader>gc :Gcommit -a<cr>
 nnoremap <leader>gs :Gstatus<cr>
 nnoremap <leader>gp :Gpush<cr>
+" ----------"
+" syntastic "
+" --------- "
+nnoremap <leader>sc :SyntasticCheck<cr>
+
 
 "###################"
 " Filetype settings "
