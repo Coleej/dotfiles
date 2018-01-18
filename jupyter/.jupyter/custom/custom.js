@@ -8,5 +8,7 @@ require([
   // Map H and L to beginning and end of line
   CodeMirror.Vim.map("H", "0", "normal");
   CodeMirror.Vim.map("L", "$", "normal");
+  CodeMirror.Vim.map("H", "0", "visual");
+  CodeMirror.Vim.map("L", "$", "visual");
 });
 
