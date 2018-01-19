@@ -1,7 +1,10 @@
+[core]
+	excludesfile = ~/.gitignore_global
+	attributesfile = ~/.gitattributes_global
+
+[push]
+	default = simple
+
 [user]
 	email = codyjohnson144@gmail.com
 	name = Cody Johnson
-[push]
-	default = simple
-[core]
-	excludesfile = /home/cjohnson/.gitignore_global
