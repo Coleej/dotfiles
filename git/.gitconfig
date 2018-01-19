@@ -1,0 +1,7 @@
+[user]
+	email = codyjohnson144@gmail.com
+	name = Cody Johnson
+[push]
+	default = simple
+[core]
+	excludesfile = /home/cjohnson/.gitignore_global
