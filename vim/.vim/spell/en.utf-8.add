@@ -634,3 +634,8 @@ subregion
 MDI
 LCP
 mapcalc
+Xenial
+mpi
+O3
+XBeachX
+repo
