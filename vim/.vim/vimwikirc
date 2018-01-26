@@ -304,7 +304,7 @@ highlight SpecialKey guifg=#4d4c42
 
 " Vimwiki
 :hi VimwikiHeader1 guifg=#FF0000
-:hi VimwikiHeader2 guifg=#00FF00
+:hi VimwikiHeader2 guifg=#FFFF00
 :hi VimwikiHeader3 guifg=#6666FF
 :hi VimwikiHeader4 guifg=#FF00FF
 :hi VimwikiHeader5 guifg=#00FFFF

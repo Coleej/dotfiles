@@ -128,6 +128,8 @@ nnoremap <leader>tl i= Synopsis = <cr><cr><cr>= Conclusions =<cr><cr><cr>= Criti
 " meetings
 nnoremap <leader>tm i= File = <cr>[[file:~/Documents/05_meetings/10_research_group/2018-/draft.odp]]<cr>[[file:~/Documents/05_meetings/10_research_group/2017-/report.pdf]]<cr><cr>= Notes =<cr>* <cr><cr>= TODO =<cr>1. [ ] <esc>kkka
 
+"
+" nnoremap <leader>tl i= Notes = <cr>* <cr><cr>= Conclusions =<cr><cr><cr>= Criticisms =<cr><cr><cr>= Notes =<cr>* 
 " vimtex "
 " ------ "
 let g:tex_flavor = 'pdflatex'
