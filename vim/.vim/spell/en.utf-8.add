@@ -676,10 +676,14 @@ eq'ns
 con't
 fortran
 cxx
+<<<<<<< HEAD
+Peucker
+=======
 DTMs
 differenced
 GEOID99
 morphodynamic
+<<<<<<< HEAD
 TKE
 vorticity
 MKE
@@ -691,3 +695,11 @@ CE7701
 html
 datagetter
 bedform
+=======
+>>>>>>> 4c2d8da8d6769824bf4ca6b17021af0ced95a157
+VLM
+cv
+nbextension
+contrib
+jupyter
+>>>>>>> 250424f4983c5a884ab401645475820eaee396c8
