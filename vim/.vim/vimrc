@@ -23,6 +23,7 @@ call plug#begin('~/.vim/plugged')
   Plug 'xolox/vim-session'
   Plug 'xolox/vim-misc'
   Plug 'tpope/vim-fugitive'
+  Plug 'tpope/vim-surround'
   Plug 'Xuyuanp/nerdtree-git-plugin'
 
   " C plugins
@@ -132,8 +133,8 @@ nnoremap <leader>tm i= File = <cr>[[file:~/Documents/05_meetings/10_research_gro
 " nnoremap <leader>tl i= Notes = <cr>* <cr><cr>= Conclusions =<cr><cr><cr>= Criticisms =<cr><cr><cr>= Notes =<cr>* 
 " vimtex "
 " ------ "
-let g:tex_flavor = 'pdflatex'
-let g:vimtex_view_method = 'mupdf' 
+let g:tex_flavor = 'latex'
+" let g:vimtex_view_method = 'mupdf' 
 
 
 " generic key mappings "
