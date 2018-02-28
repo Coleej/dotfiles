@@ -126,11 +126,15 @@ let g:vimwiki_list = [{'path': '~/.vimwiki',
 " literature review notes
 nnoremap <leader>tl i= Synopsis = <cr><cr><cr>= Conclusions =<cr><cr><cr>= Criticisms =<cr><cr><cr>= Notes =<cr>== General ==<cr>* 
 
-" meetings
-nnoremap <leader>tm i= File = <cr>[[file:~/Documents/05_meetings/10_research_group/2018-/draft.odp]]<cr>[[file:~/Documents/05_meetings/10_research_group/2017-/report.pdf]]<cr><cr>= Notes =<cr>* <cr><cr>= TODO =<cr>1. [ ] <esc>kkka
+" group meetings
+nnoremap <leader>tmg i= File = <cr>[[file:~/Documents/05_meetings/10_research_group/2018-/draft.odp]]<cr>[[file:~/Documents/05_meetings/10_research_group/2018-/report.pdf]]<cr><cr>= Notes =<cr>* <cr><cr>= TODO =<cr>1. [ ] <esc>kkka
 
-"
-" nnoremap <leader>tl i= Notes = <cr>* <cr><cr>= Conclusions =<cr><cr><cr>= Criticisms =<cr><cr><cr>= Notes =<cr>* 
+" meetings
+nnoremap <leader>tmi i= File = <cr>[[file:~/Documents/05_meetings/00_individual/2018-/draft.odp]]<cr>[[file:~/Documents/05_meetings/00_individual/2018-/report.pdf]]<cr><cr>= Notes =<cr>* <cr><cr>= TODO =<cr>1. [ ] <esc>kkka
+
+" meetings
+nnoremap <leader>tml i= Notes =<cr>* <cr><cr>= TODO =<cr>1. [ ] <esc>kkka
+
 " vimtex "
 " ------ "
 let g:tex_flavor = 'latex'
