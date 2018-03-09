@@ -333,6 +333,14 @@ if has("autocmd")
     :au FileType fish setlocal sw=2
     :au FileType fish setlocal expandtab
   :augroup END
+  
+  " fortran 
+  :augroup filetype_fortran
+    :autocmd!
+    :au FileType sh set tabstop=6
+    :au FileType sh set sw=6
+  :augroup END
+
 
 endif
 

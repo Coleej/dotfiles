@@ -3,7 +3,7 @@ import os
 import numpy as np
 import scipy as sci
 import scipy.constants as consts
-import sympy as spy
+import sympy as sym
 import pint as pt
 import pandas as pd
 from datetime import datetime as dt
