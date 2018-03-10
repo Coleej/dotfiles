@@ -45,6 +45,8 @@ set nu
 set wrap linebreak
 set grepprg=grep\ -nH\ $ "Set grep to always print file-names*
 set autoindent
+set ts=2
+set sw=2
 filetype plugin on
 syntax on
 noh
@@ -137,9 +139,18 @@ nnoremap <leader>tml i= Notes =<cr>* <cr><cr>= TODO =<cr>1. [ ] <esc>kkka
 
 " vimtex "
 " ------ "
+let g:vimtex_view_general_viewer = 'qpdfview'
+let g:vimtex_view_general_options
+\ = '--unique @pdf\#src:@tex:@line:@col'
+let g:vimtex_view_general_options_latexmk = '--unique'
 let g:tex_flavor = 'latex'
-" let g:vimtex_view_method = 'mupdf' 
+"let g:vimtex_view_method = 'mupdf'
+let g:vimtex_compiler_latexmk = {
+	\ 'build_dir' : './build'
+	\ }
 
+let g:vimtex_fold_enabled=1
+"set fillchars=vert:|,fold:\
 
 " generic key mappings "
 "######################"
@@ -157,8 +168,7 @@ nnoremap <leader>n :set hlsearch!<CR>
 nnoremap <leader>nn :set nu!<CR>
 nnoremap <localleader>cal :Calendar<CR>
 nnoremap <leader>sp :set spell!
-nnoremap <localleader>lh <plug>(vimtex-compile-ss)
-nnoremap <localleader>la <plug>(vimtex-lacheck)
+
 
 " Cycle buffers
 nnoremap <leader><Tab> :bnext!<CR>
@@ -207,7 +217,7 @@ inoremap <C-u> <esc> viw<S-u>
 nnoremap <C-u> viw<S-u>
 
 " Open split to edit vimrc
-nnoremap <leader>ev :vsplit $MYVIMRC<cr>
+nnoremap <leader>ev :split $MYVIMRC<cr>
 
 " Source vimrc
 nnoremap <leader>sv :source $MYVIMRC<cr> :echo "vimrc sourced"<cr>
@@ -266,8 +276,12 @@ if has("autocmd")
   " Latex
   :augroup filetype_latex
     :autocmd!
-    :au FileType tex let g:vimtex_quickfix_open_on_warning=0
+    :au FileType tex let g:vimtex_quickfix_open_on_warning=1
     :au FileType tex setlocal spell spelllang=en_us
+    :au FileType tex nnoremap <localleader>lh <plug>(vimtex-compile-ss)
+    :au FileType tex nnoremap <localleader>la <plug>(vimtex-lacheck)
+    :au FileType tex nnoremap <localleader>t <plug>(vimtex-toc-toggle)
+    :au FileType tex setlocal ts=2 sts=2 sw=2
   :augroup END
   
   
@@ -337,10 +351,9 @@ if has("autocmd")
   " fortran 
   :augroup filetype_fortran
     :autocmd!
-    :au FileType sh set tabstop=6
-    :au FileType sh set sw=6
+    :au FileType fortran set tabstop=6
+    :au FileType fortran set sw=6
   :augroup END
-
 
 endif
 
