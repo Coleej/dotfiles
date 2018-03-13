@@ -140,15 +140,12 @@ nnoremap <leader>tml i= Notes =<cr>* <cr><cr>= TODO =<cr>1. [ ] <esc>kkka
 " vimtex "
 " ------ "
 let g:vimtex_view_general_viewer = 'qpdfview'
-let g:vimtex_view_general_options
-\ = '--unique @pdf\#src:@tex:@line:@col'
+let g:vimtex_view_general_options = '--unique @pdf\#src:@tex:@line:@col'
 let g:vimtex_view_general_options_latexmk = '--unique'
 let g:tex_flavor = 'latex'
-"let g:vimtex_view_method = 'mupdf'
 let g:vimtex_compiler_latexmk = {
 	\ 'build_dir' : './build'
 	\ }
-
 let g:vimtex_fold_enabled=1
 "set fillchars=vert:|,fold:\
 
@@ -351,8 +348,10 @@ if has("autocmd")
   " fortran 
   :augroup filetype_fortran
     :autocmd!
-    :au FileType fortran set tabstop=6
-    :au FileType fortran set sw=6
+    :au FileType fortran filetype plugin indent on
+		:au Filetype fortran syntax on
+		:au Filetype fortran setlocal tabstop=6
+    :au FileType fortran setlocal sw=6
   :augroup END
 
 endif
