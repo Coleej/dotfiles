@@ -256,6 +256,7 @@ if has("autocmd")
     :au FileType python nnoremap <buffer> <localleader>c I#<space><esc>
     ":au BufWritePost *.py call Flake8()
     :au FileType python let g:jedi#documentation_command = "U"
+		:au Filetype python setlocal expandtab
   :augroup END
 
   
@@ -349,8 +350,8 @@ if has("autocmd")
   :augroup filetype_fortran
     :autocmd!
     :au FileType fortran filetype plugin indent on
-		:au Filetype fortran syntax on
-		:au Filetype fortran setlocal tabstop=6
+    :au Filetype fortran syntax on
+    :au Filetype fortran setlocal tabstop=6
     :au FileType fortran setlocal sw=6
   :augroup END
 
