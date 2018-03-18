@@ -86,6 +86,11 @@ let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
+" let the flake8 vim plugin handle checks for python
+let g:syntastic_mode_map = {
+	\ "mode" : "active",
+	\ "passive_filetypes" : ["python"] }
+
 
 " Vim-session "
 " ----------- "
@@ -257,7 +262,12 @@ if has("autocmd")
     :au FileType python nnoremap <buffer> <localleader>c I#<space><esc>
     :au BufWritePost *.py call Flake8()
     :au FileType python let g:jedi#documentation_command = "U"
+		:au Filetype python setlocal tabstop=4
+		:au Filetype python setlocal softtabstop=4
+		:au Filetype python setlocal shiftwidth=4
+		:au Filetype python setlocal textwidth=79
 		:au Filetype python setlocal expandtab
+		:au Filetype python setlocal fileformat=unix
 		:au FileType python setlocal foldmethod=indent
 		:au FileType python let g:SimpylFold_docstring_preview=1
   :augroup END
