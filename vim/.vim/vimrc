@@ -30,6 +30,7 @@ call plug#begin('~/.vim/plugged')
   Plug 'vim-syntastic/syntastic'
   
   " python plugins
+	Plug 'tmhedberg/SimpylFold'
   Plug 'davidhalter/jedi-vim'
   Plug 'jmcantrell/vim-virtualenv'
   Plug 'nvie/vim-flake8'
@@ -254,9 +255,11 @@ if has("autocmd")
   :augroup filetype_python
     :autocmd!
     :au FileType python nnoremap <buffer> <localleader>c I#<space><esc>
-    ":au BufWritePost *.py call Flake8()
+    :au BufWritePost *.py call Flake8()
     :au FileType python let g:jedi#documentation_command = "U"
 		:au Filetype python setlocal expandtab
+		:au FileType python setlocal foldmethod=indent
+		:au FileType python let g:SimpylFold_docstring_preview=1
   :augroup END
 
   
