@@ -1,0 +1,15 @@
+com-*
+*.prt-*
+hot_*
+TMP_*
+tri-diag.*
+*.url_*
+*.ddb
+tri-rst.*
+BOTNOW
+CURNOW
+NEST*
+PRINT-*
+WAVE2FLOW_DATA.*
+SWANIN_NGRID*
+WNDNOW*
