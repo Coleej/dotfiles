@@ -13,3 +13,6 @@ PRINT-*
 WAVE2FLOW_DATA.*
 SWANIN_NGRID*
 WNDNOW*
+/boundary_conditions/
+/depths/
+/grids/
