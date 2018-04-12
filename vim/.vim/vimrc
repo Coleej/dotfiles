@@ -142,16 +142,16 @@ let g:vimwiki_list = [wiki_root, wiki_phd]
 
 " template macros
 " literature review notes
-nnoremap <leader>tl i= Synopsis = <cr><cr><cr>= Conclusions =<cr><cr><cr>= Criticisms =<cr><cr><cr>= Notes =<cr>== General ==<cr>* 
+nnoremap <leader>tl i= synopsis = <cr><cr><cr>= conclusions =<cr><cr><cr>= criticisms =<cr><cr><cr>= notes =<cr>== general ==<cr>* 
 
 " group meetings
-nnoremap <leader>tmg i= File = <cr>[[file:~/Documents/05_meetings/10_research_group/2018-/draft.odp]]<cr>[[file:~/Documents/05_meetings/10_research_group/2018-/report.pdf]]<cr><cr>= Notes =<cr>* <cr><cr>= TODO =<cr>1. [ ] <esc>kkka
+nnoremap <leader>tmg i= file = <cr>[[file:~/Documents/05_meetings/10_research_group/2018-/draft.odp]]<cr>[[file:~/Documents/05_meetings/10_research_group/2018-/report.pdf]]<cr><cr>= notes =<cr>* <cr><cr>= todo =<cr>1. [ ] <esc>kkka
 
 " meetings
-nnoremap <leader>tmi i= File = <cr>[[file:~/Documents/05_meetings/00_individual/2018-/draft.odp]]<cr>[[file:~/Documents/05_meetings/00_individual/2018-/report.pdf]]<cr><cr>= Notes =<cr>* <cr><cr>= TODO =<cr>1. [ ] <esc>kkka
+nnoremap <leader>tmi i= file = <cr>[[file:~/Documents/05_meetings/00_individual/2018-/draft.odp]]<cr>[[file:~/Documents/05_meetings/00_individual/2018-/report.pdf]]<cr><cr>= notes =<cr>* <cr><cr>= todo =<cr>1. [ ] <esc>kkka
 
 " meetings
-nnoremap <leader>tml i= Notes =<cr>* <cr><cr>= TODO =<cr>1. [ ] <esc>kkka
+nnoremap <leader>tml i= notes =<cr>* <cr><cr>= todo =<cr>1. [ ] <esc>kkka
 
 " vimtex "
 " ------ "
@@ -258,6 +258,13 @@ nnoremap <leader>gp :Gpush<cr>
 nnoremap <leader>sc :SyntasticCheck<cr>
 noremap <leader>st :SyntasticToggleMode<cr>
 
+" ---------- "
+" vim-resize "
+" ---------- "
+nnoremap <silent> <c-left> :CmdResizeLeft<cr>
+nnoremap <silent> <c-down> :CmdResizeDown<cr>
+nnoremap <silent> <c-up> :CmdResizeUp<cr>
+nnoremap <silent> <c-right> :CmdResizeRight<cr>
 
 "###################"
 " Filetype settings "
@@ -423,7 +430,7 @@ hi Search ctermfg=white ctermbg=blue
 " Vimwiki
 :hi VimwikiHeader1 ctermfg=2
 :hi VimwikiHeader2 ctermfg=4
-:hi VimwikiHeader3 ctermfg=11
-:hi VimwikiHeader4 ctermfg=6
-:hi VimwikiHeader5 ctermfg=7
+:hi VimwikiHeader3 ctermfg=10
+:hi VimwikiHeader4 ctermfg=140
+:hi VimwikiHeader5 ctermfg=20
 :hi VimwikiHeader6 ctermfg=1
