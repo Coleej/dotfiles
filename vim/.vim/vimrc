@@ -380,10 +380,18 @@ if has("autocmd")
   " fortran 
   :augroup filetype_fortran
     :autocmd!
+    :au FileType fortran let fortran_free_source=1
+    :au FileType fortran let fortran_do_enddo=1
     :au FileType fortran filetype plugin indent on
     :au Filetype fortran syntax on
-    :au Filetype fortran setlocal tabstop=6
-    :au FileType fortran setlocal sw=6
+		:au FileType fortran setlocal smarttab
+		:au FileType fortran setlocal expandtab
+    :au Filetype fortran setlocal tabstop=2
+		:au FileType fortran setlocal sw=2
+    :au FileType fortran setlocal bs=2
+    :au FileType fortran setlocal incsearch
+    :au FileType fortran setlocal ignorecase
+    :au FileType fortran setlocal smartcase
   :augroup END
 
 endif
