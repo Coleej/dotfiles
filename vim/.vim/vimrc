@@ -381,6 +381,8 @@ if has("autocmd")
   :augroup filetype_fortran
     :autocmd!
     :au FileType fortran let fortran_free_source=1
+    :au FileType fortran let fortran_have_tabs=1
+    :au FileType fortran let fortran_more_precise=1
     :au FileType fortran let fortran_do_enddo=1
     :au FileType fortran filetype plugin indent on
     :au Filetype fortran syntax on
