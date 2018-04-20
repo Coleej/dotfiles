@@ -39,6 +39,8 @@ function fish_prompt
       set -g host_color $orange
     case pi
       set -g host_color $magenta
+    case arch-box
+      set -g host_color $cyan
     case *
       set -g host_color $yellow
   end

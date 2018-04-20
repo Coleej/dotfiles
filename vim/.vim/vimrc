@@ -355,6 +355,13 @@ if has("autocmd")
     :au FileType fortran set sw=6
   :augroup END
 
+	" rust
+	:augroup filetype_rust
+		:autocmd!
+		:au FileType rust inoremap <buffer> <CR>a => 
+	:augroup END
+
+
 endif
 
 
