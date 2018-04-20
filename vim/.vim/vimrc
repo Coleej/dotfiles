@@ -30,6 +30,7 @@ call plug#begin('~/.vim/plugged')
   Plug 'vim-syntastic/syntastic'
   
   " python plugins
+	Plug 'tmhedberg/SimpylFold'
   Plug 'davidhalter/jedi-vim'
   Plug 'jmcantrell/vim-virtualenv'
   Plug 'nvie/vim-flake8'
@@ -85,6 +86,11 @@ let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
+" let the flake8 vim plugin handle checks for python
+let g:syntastic_mode_map = {
+	\ "mode" : "active",
+	\ "passive_filetypes" : ["python"] }
+
 
 " Vim-session "
 " ----------- "
@@ -118,37 +124,44 @@ endfunction
 
 " vimwiki "
 " ------- "
-let g:vimwiki_list = [{'path': '~/.vimwiki',
-       \ 'path_html': '~/.vimwiki/html',
-       \ 'template_path': '~/.vimwiki/templates/',
-       \ 'template_default': 'def_template',
-       \ 'template_ext': '.html'}]
+let wiki_root = {}
+let wiki_root.path = '~/.vimwiki'
+let wiki_root.path_html = '~/.vimwiki/html'
+let wiki_root.template_path = '~/.vimwiki/templates/'
+let wiki_root.template_default = 'def_template'
+let wiki_root.template_ext = '.html'
+
+let wiki_phd = {}
+let wiki_phd.path = '~/.phd_wiki'
+let wiki_phd.path_html = '~/.phd_wiki/html'
+let wiki_phd.template_path = '~/.phd_wiki/templates/'
+let wiki_phd.template_default = 'def_template'
+let wiki_phd.template_ext = '.html'
+
+let g:vimwiki_list = [wiki_root, wiki_phd]
 
 " template macros
 " literature review notes
-nnoremap <leader>tl i= Synopsis = <cr><cr><cr>= Conclusions =<cr><cr><cr>= Criticisms =<cr><cr><cr>= Notes =<cr>== General ==<cr>* 
+nnoremap <leader>tl i= synopsis = <cr><cr><cr>= conclusions =<cr><cr><cr>= criticisms =<cr><cr><cr>= notes =<cr>== general ==<cr>* 
 
 " group meetings
-nnoremap <leader>tmg i= File = <cr>[[file:~/Documents/05_meetings/10_research_group/2018-/draft.odp]]<cr>[[file:~/Documents/05_meetings/10_research_group/2018-/report.pdf]]<cr><cr>= Notes =<cr>* <cr><cr>= TODO =<cr>1. [ ] <esc>kkka
+nnoremap <leader>tmg i= file = <cr>[[file:~/Documents/05_meetings/10_research_group/2018-/draft.odp]]<cr>[[file:~/Documents/05_meetings/10_research_group/2018-/report.pdf]]<cr><cr>= notes =<cr>* <cr><cr>= todo =<cr>1. [ ] <esc>kkka
 
 " meetings
-nnoremap <leader>tmi i= File = <cr>[[file:~/Documents/05_meetings/00_individual/2018-/draft.odp]]<cr>[[file:~/Documents/05_meetings/00_individual/2018-/report.pdf]]<cr><cr>= Notes =<cr>* <cr><cr>= TODO =<cr>1. [ ] <esc>kkka
+nnoremap <leader>tmi i= file = <cr>[[file:~/Documents/05_meetings/00_individual/2018-/draft.odp]]<cr>[[file:~/Documents/05_meetings/00_individual/2018-/report.pdf]]<cr><cr>= notes =<cr>* <cr><cr>= todo =<cr>1. [ ] <esc>kkka
 
 " meetings
-nnoremap <leader>tml i= Notes =<cr>* <cr><cr>= TODO =<cr>1. [ ] <esc>kkka
+nnoremap <leader>tml i= notes =<cr>* <cr><cr>= todo =<cr>1. [ ] <esc>kkka
 
 " vimtex "
 " ------ "
 let g:vimtex_view_general_viewer = 'qpdfview'
-let g:vimtex_view_general_options
-\ = '--unique @pdf\#src:@tex:@line:@col'
+let g:vimtex_view_general_options = '--unique @pdf\#src:@tex:@line:@col'
 let g:vimtex_view_general_options_latexmk = '--unique'
 let g:tex_flavor = 'latex'
-"let g:vimtex_view_method = 'mupdf'
 let g:vimtex_compiler_latexmk = {
 	\ 'build_dir' : './build'
 	\ }
-
 let g:vimtex_fold_enabled=1
 "set fillchars=vert:|,fold:\
 
@@ -243,7 +256,15 @@ nnoremap <leader>gp :Gpush<cr>
 " syntastic "
 " --------- "
 nnoremap <leader>sc :SyntasticCheck<cr>
+noremap <leader>st :SyntasticToggleMode<cr>
 
+" ---------- "
+" vim-resize "
+" ---------- "
+nnoremap <silent> <c-left> :CmdResizeLeft<cr>
+nnoremap <silent> <c-down> :CmdResizeDown<cr>
+nnoremap <silent> <c-up> :CmdResizeUp<cr>
+nnoremap <silent> <c-right> :CmdResizeRight<cr>
 
 "###################"
 " Filetype settings "
@@ -257,8 +278,16 @@ if has("autocmd")
   :augroup filetype_python
     :autocmd!
     :au FileType python nnoremap <buffer> <localleader>c I#<space><esc>
-    ":au BufWritePost *.py call Flake8()
+    :au BufWritePost *.py call Flake8()
     :au FileType python let g:jedi#documentation_command = "U"
+		:au Filetype python setlocal tabstop=4
+		:au Filetype python setlocal softtabstop=4
+		:au Filetype python setlocal shiftwidth=4
+		:au Filetype python setlocal textwidth=79
+		:au Filetype python setlocal expandtab
+		:au Filetype python setlocal fileformat=unix
+		:au FileType python setlocal foldmethod=indent
+		:au FileType python let g:SimpylFold_docstring_preview=1
   :augroup END
 
   
@@ -351,8 +380,20 @@ if has("autocmd")
   " fortran 
   :augroup filetype_fortran
     :autocmd!
-    :au FileType fortran set tabstop=6
-    :au FileType fortran set sw=6
+    :au FileType fortran let fortran_free_source=1
+    :au FileType fortran let fortran_have_tabs=1
+    :au FileType fortran let fortran_more_precise=1
+    :au FileType fortran let fortran_do_enddo=1
+    :au FileType fortran filetype plugin indent on
+    :au Filetype fortran syntax on
+		:au FileType fortran setlocal smarttab
+		:au FileType fortran setlocal expandtab
+    :au Filetype fortran setlocal tabstop=2
+		:au FileType fortran setlocal sw=2
+    :au FileType fortran setlocal bs=2
+    :au FileType fortran setlocal incsearch
+    :au FileType fortran setlocal ignorecase
+    :au FileType fortran setlocal smartcase
   :augroup END
 
 	" rust
@@ -406,7 +447,7 @@ hi Search ctermfg=white ctermbg=blue
 " Vimwiki
 :hi VimwikiHeader1 ctermfg=2
 :hi VimwikiHeader2 ctermfg=4
-:hi VimwikiHeader3 ctermfg=11
-:hi VimwikiHeader4 ctermfg=6
-:hi VimwikiHeader5 ctermfg=7
+:hi VimwikiHeader3 ctermfg=10
+:hi VimwikiHeader4 ctermfg=140
+:hi VimwikiHeader5 ctermfg=20
 :hi VimwikiHeader6 ctermfg=1

@@ -2,3 +2,9 @@
 .venv
 *.swo
 *.swp
+xboutput.nc
+q_series*
+E_series*
+ebcflist.bcf
+qbcflist.bcf
+*.nc

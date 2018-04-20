@@ -15,9 +15,9 @@ if [ "$PATHS" != "true" ]; then
 fi
 
 # enable virualenvwrapper
-export WORKON_HOME=$HOME/.envs
-export VIRTUALENVWRAPPER_PYTHON=$(which python3)
-source /usr/bin/virtualenvwrapper.sh
+#export WORKON_HOME=$HOME/.envs
+#export VIRTUALENVWRAPPER_PYTHON=$(which python3)
+#source /usr/bin/virtualenvwrapper.sh
 
 EDITOR=vim
 # export PATH MANPATH INFOPATH EDITOR
