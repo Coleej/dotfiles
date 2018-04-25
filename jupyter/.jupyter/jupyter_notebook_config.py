@@ -73,7 +73,7 @@
 #  If not specified, the default browser will be determined by the `webbrowser`
 #  standard library module, which allows setting of the BROWSER environment
 #  variable to override it.
-#c.NotebookApp.browser = ''
+c.NotebookApp.browser = '/usr/bin/firefox'
 #
 ## The full path to an SSL/TLS certificate file.
 #c.NotebookApp.certfile = ''

@@ -1,6 +1,14 @@
 " Configuration file for vim
-
 set shell=bash
+
+"*******************************************
+" some commands                            "
+" ******************************************
+" *******************************
+" ********************
+" **********
+" ***
+silent mkspell! ~/.vim/spell/en.utf-8.add
 
 " vim-plug section "
 call plug#begin('~/.vim/plugged')
@@ -24,6 +32,7 @@ call plug#begin('~/.vim/plugged')
   Plug 'xolox/vim-misc'
   Plug 'tpope/vim-fugitive'
   Plug 'tpope/vim-surround'
+  Plug 'tpope/vim-commentary'
   Plug 'Xuyuanp/nerdtree-git-plugin'
 
   " C plugins
@@ -37,9 +46,14 @@ call plug#begin('~/.vim/plugged')
 
 call plug#end()
 
-" ########## "
-" vim config "
-" ########## "
+"*******************************************
+" vim config                               "
+" ******************************************
+" *******************************
+" ********************
+" **********
+" ***
+
 set foldmethod=syntax
 set belloff=all
 set nu
@@ -69,104 +83,13 @@ endif
 :iabbrev @@1 codyjohnson144@gmail.com
 :iabbrev @@2 cjoh296@lsu.edu
 
-
-" Plugin configurations
-
-" vim-airline "
-" ----------- "
-let g:airline#extensions#tabline#enabled = 1
-let g:airline_theme='luna'
-
-" jedi-vim "
-" -------- "
-
-" syntastic "
-" --------- "
-let g:syntastic_always_populate_loc_list = 1
-let g:syntastic_auto_loc_list = 1
-let g:syntastic_check_on_open = 1
-let g:syntastic_check_on_wq = 0
-" let the flake8 vim plugin handle checks for python
-let g:syntastic_mode_map = {
-	\ "mode" : "active",
-	\ "passive_filetypes" : ["python"] }
-
-
-" Vim-session "
-" ----------- "
-nnoremap <leader>S :SaveSession 
-nnoremap <leader>O :OpenSession 
-let g:session_autoload = 'no'
-let g:session_autosave = 'no'
-
-" NERDTree "
-" -------- "
-let g:NERDTreeWinSize = 52
-
-au bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
-
-" function to open NERDTree depending on filetype
-au vimenter * call s:CheckToOpenNERDTree()
-
-function! s:CheckToOpenNERDTree() abort
-
-	" Open for python
-	if &filetype == 'python'
-		NERDTree
-	endif
-
-	" Open for c
-	if &filetype == 'c'
-		NERDTree
-	endif
-
-endfunction
-
-" vimwiki "
-" ------- "
-let wiki_root = {}
-let wiki_root.path = '~/.vimwiki'
-let wiki_root.path_html = '~/.vimwiki/html'
-let wiki_root.template_path = '~/.vimwiki/templates/'
-let wiki_root.template_default = 'def_template'
-let wiki_root.template_ext = '.html'
-
-let wiki_phd = {}
-let wiki_phd.path = '~/.phd_wiki'
-let wiki_phd.path_html = '~/.phd_wiki/html'
-let wiki_phd.template_path = '~/.phd_wiki/templates/'
-let wiki_phd.template_default = 'def_template'
-let wiki_phd.template_ext = '.html'
-
-let g:vimwiki_list = [wiki_root, wiki_phd]
-
-" template macros
-" literature review notes
-nnoremap <leader>tl i= Synopsis = <cr><cr><cr>= Conclusions =<cr><cr><cr>= Criticisms =<cr><cr><cr>= Notes =<cr>== General ==<cr>* 
-
-" group meetings
-nnoremap <leader>tmg i= File = <cr>[[file:~/Documents/05_meetings/10_research_group/2018-/draft.odp]]<cr>[[file:~/Documents/05_meetings/10_research_group/2018-/report.pdf]]<cr><cr>= Notes =<cr>* <cr><cr>= TODO =<cr>1. [ ] <esc>kkka
-
-" meetings
-nnoremap <leader>tmi i= File = <cr>[[file:~/Documents/05_meetings/00_individual/2018-/draft.odp]]<cr>[[file:~/Documents/05_meetings/00_individual/2018-/report.pdf]]<cr><cr>= Notes =<cr>* <cr><cr>= TODO =<cr>1. [ ] <esc>kkka
-
-" meetings
-nnoremap <leader>tml i= Notes =<cr>* <cr><cr>= TODO =<cr>1. [ ] <esc>kkka
-
-" vimtex "
-" ------ "
-let g:vimtex_view_general_viewer = 'qpdfview'
-let g:vimtex_view_general_options = '--unique @pdf\#src:@tex:@line:@col'
-let g:vimtex_view_general_options_latexmk = '--unique'
-let g:tex_flavor = 'latex'
-let g:vimtex_compiler_latexmk = {
-	\ 'build_dir' : './build'
-	\ }
-let g:vimtex_fold_enabled=1
-"set fillchars=vert:|,fold:\
-
-" generic key mappings "
-"######################"
+"*******************************************
+" generic key mappings                     "
+" ******************************************
+" *******************************
+" ********************
+" **********
+" ***
 let mapleader = "\\"
 let maplocalleader = "`"
 
@@ -179,9 +102,8 @@ set listchars=tab:▶\ ,eol:¬
 nnoremap <leader>N :NERDTreeToggle<CR>
 nnoremap <leader>n :set hlsearch!<CR>
 nnoremap <leader>nn :set nu!<CR>
-nnoremap <localleader>cal :Calendar<CR>
 nnoremap <leader>sp :set spell!
-
+nnoremap <localleader>cal :Calendar<CR>
 
 " Cycle buffers
 nnoremap <leader><Tab> :bnext!<CR>
@@ -225,12 +147,9 @@ noremap _ d$k<S-p>0
 " move line of text down a line
 noremap - d$ p0
 
-" Capitalize word under cursor in insert-mode
-inoremap <C-u> <esc> viw<S-u>
-nnoremap <C-u> viw<S-u>
-
 " Open split to edit vimrc
 nnoremap <leader>ev :split $MYVIMRC<cr>
+nnoremap <leader>vv :vsplit $MYVIMRC<cr>
 
 " Source vimrc
 nnoremap <leader>sv :source $MYVIMRC<cr> :echo "vimrc sourced"<cr>
@@ -245,23 +164,165 @@ onoremap b /return<cr>
 :onoremap in( :<c-u>normal! f(vi(<cr>
 :onoremap il( :<c-u>normal! F)vi(<cr>
 
-" Plugin mappings "
-" ----------------"
+"*******************************************
+" Plugin configurations                    "
+" ******************************************
+" *******************************
+" ********************
+" **********
+" ***
+" ----------- "
+" vim-airline "
+" ----------- "
+let g:airline#extensions#tabline#enabled = 1
+let g:airline_theme='luna'
+
+" -------- "
+" jedi-vim "
+" -------- "
+
+" syntastic "
+" --------- "
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 0
+" let the flake8 vim plugin handle checks for python
+let g:syntastic_mode_map = {
+	\ "mode" : "active",
+	\ "passive_filetypes" : ["python"] }
+
+" ----------- "
+" Vim-session "
+" ----------- "
+nnoremap <leader>S :SaveSession 
+nnoremap <leader>O :OpenSession 
+let g:session_autoload = 'no'
+let g:session_autosave = 'no'
+
+" -------- "
+" NERDTree "
+" -------- "
+let g:NERDTreeWinSize = 52
+au bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
+" function to open NERDTree depending on filetype
+au vimenter * call s:CheckToOpenNERDTree()
+
+function! s:CheckToOpenNERDTree() abort
+
+	" Open for python
+	if &filetype == 'python'
+		NERDTree
+	endif
+
+	" Open for c
+	if &filetype == 'c'
+		NERDTree
+	endif
+
+endfunction
+
+" ------- "
+" vimwiki "
+" ------- "
+let wiki_root = {}
+let wiki_root.path = '~/.vimwiki'
+let wiki_root.path_html = '~/.vimwiki/html'
+let wiki_root.template_path = '~/.vimwiki/templates/'
+let wiki_root.template_default = 'def_template'
+let wiki_root.template_ext = '.html'
+
+let wiki_phd = {}
+let wiki_phd.path = '~/.phd_wiki'
+let wiki_phd.path_html = '~/.phd_wiki/html'
+let wiki_phd.template_path = '~/.phd_wiki/templates/'
+let wiki_phd.template_default = 'def_template'
+let wiki_phd.template_ext = '.html'
+
+let g:vimwiki_list = [wiki_root, wiki_phd]
+
+" Use Vim to open external files with the 'vfile:' scheme.  E.g.:
+"   1) [[vfile:~/Code/PythonProject/abc123.py]]
+"   2) [[vfile:./|Wiki Home]]
+function! VimwikiLinkHandler(link)
+	let link = a:link
+	if link =~# '^vfile:'
+		let link = link[1:]
+	else
+		return 0
+	endif
+	let link_infos = vimwiki#base#resolve_link(link)
+	if link_infos.filename == ''
+		echomsg 'Vimwiki Error: Unable to resolve link!'
+		return 0
+	else
+		exe 'tabnew ' . fnameescape(link_infos.filename)
+		return 1
+	endif
+endfunction
+
+" -------------------- "
+" wiki template macros "
+" -------------------- "
+" literature review notes
+nnoremap <leader>tl i= synopsis = <cr><cr><cr>= conclusions =<cr><cr><cr>= criticisms =<cr><cr><cr>= notes =<cr>== general ==<cr>* 
+
+" group meetings
+nnoremap <leader>tmg i= file = <cr>[[file:~/Documents/05_meetings/10_research_group/2018-/draft.odp]]<cr>[[file:~/Documents/05_meetings/10_research_group/2018-/report.pdf]]<cr><cr>= notes =<cr>* <cr>kka
+
+" meetings
+nnoremap <leader>tmi i= file = <cr>[[file:~/Documents/05_meetings/00_individual/2018-/draft.odp]]<cr>[[file:~/Documents/05_meetings/00_individual/2018-/report.pdf]]<cr><cr>= notes =<cr>* <cr>kka
+
+" meetings
+nnoremap <leader>tml i= notes =<cr>* <cr>kka
+
+" ------ "
+" vimtex "
+" ------ "
+let g:vimtex_view_general_viewer = 'qpdfview'
+let g:vimtex_view_general_options = '--unique @pdf\#src:@tex:@line:@col'
+let g:vimtex_view_general_options_latexmk = '--unique'
+let g:tex_flavor = 'latex'
+let g:vimtex_compiler_latexmk = {
+	\ 'build_dir' : './build'
+	\ }
+let g:vimtex_fold_enabled=1
+"set fillchars=vert:|,fold:\
+
+"*******************************************
+" pluggin key mappings                     "
+" ******************************************
+" *******************************
+" ********************
+" **********
+" ***
 " fugitive "
 " -------- "
 nnoremap <leader>gc :Gcommit -a<cr>
 nnoremap <leader>gs :Gstatus<cr>
 nnoremap <leader>gp :Gpush<cr>
+
 " ----------"
 " syntastic "
 " --------- "
 nnoremap <leader>sc :SyntasticCheck<cr>
 noremap <leader>st :SyntasticToggleMode<cr>
 
+" ---------- "
+" vim-resize "
+" ---------- "
+nnoremap <silent> <c-left> :CmdResizeLeft<cr>
+nnoremap <silent> <c-down> :CmdResizeDown<cr>
+nnoremap <silent> <c-up> :CmdResizeUp<cr>
+nnoremap <silent> <c-right> :CmdResizeRight<cr>
 
-"###################"
-" Filetype settings "
-"###################"
+"*******************************************
+" Filetype settings                        "
+" ******************************************
+" *******************************
+" ********************
+" **********
+" ***
 
 if has("autocmd")
   " Enable file type detection
@@ -373,11 +434,28 @@ if has("autocmd")
   " fortran 
   :augroup filetype_fortran
     :autocmd!
+    :au FileType fortran let fortran_free_source=1
+    :au FileType fortran let fortran_have_tabs=1
+    :au FileType fortran let fortran_more_precise=1
+    :au FileType fortran let fortran_do_enddo=1
     :au FileType fortran filetype plugin indent on
     :au Filetype fortran syntax on
-    :au Filetype fortran setlocal tabstop=6
-    :au FileType fortran setlocal sw=6
+		:au FileType fortran setlocal smarttab
+		:au FileType fortran setlocal expandtab
+    :au Filetype fortran setlocal tabstop=2
+		:au FileType fortran setlocal sw=2
+    :au FileType fortran setlocal bs=2
+    :au FileType fortran setlocal incsearch
+    :au FileType fortran setlocal ignorecase
+    :au FileType fortran setlocal smartcase
   :augroup END
+
+	" rust
+	:augroup filetype_rust
+		:autocmd!
+		:au FileType rust inoremap <buffer> <CR>a => 
+	:augroup END
+
 
 endif
 
@@ -423,7 +501,7 @@ hi Search ctermfg=white ctermbg=blue
 " Vimwiki
 :hi VimwikiHeader1 ctermfg=2
 :hi VimwikiHeader2 ctermfg=4
-:hi VimwikiHeader3 ctermfg=11
-:hi VimwikiHeader4 ctermfg=6
-:hi VimwikiHeader5 ctermfg=7
+:hi VimwikiHeader3 ctermfg=10
+:hi VimwikiHeader4 ctermfg=140
+:hi VimwikiHeader5 ctermfg=20
 :hi VimwikiHeader6 ctermfg=1
