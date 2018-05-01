@@ -415,6 +415,7 @@ if has("autocmd")
     :au FileType vimwiki noremap <buffer> <leader>- :VimwikiChangeSymbolInListTo -<CR>
     :au FileType vimwiki noremap <buffer> <leader>3 :VimwikiChangeSymbolTo #<CR>
     :au FileType vimwiki noremap <buffer> <leader># :VimwikiChangeSymbolInListTo #<CR>
+		:au FileType vimwiki noremap <buffer> <leader>wq :VimwikiVSplitLink<CR>
   :augroup END
 
   " html
