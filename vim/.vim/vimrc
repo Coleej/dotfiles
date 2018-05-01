@@ -62,6 +62,8 @@ set grepprg=grep\ -nH\ $ "Set grep to always print file-names*
 set autoindent
 set ts=2
 set sw=2
+set wildmenu
+set wildmode=full
 filetype plugin on
 syntax on
 noh
