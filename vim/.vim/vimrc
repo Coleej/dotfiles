@@ -64,6 +64,7 @@ set ts=2
 set sw=2
 set wildmenu
 set wildmode=full
+set history=200
 filetype plugin on
 syntax on
 noh
@@ -95,6 +96,10 @@ endif
 let mapleader = "\\"
 let maplocalleader = "`"
 
+" command mode
+cnoremap <C-p> <Up>
+cnoremap <C-n> <Down>
+
 " miscellaneous 
 nnoremap <leader>L :set list!<CR>
 setlocal nolist
@@ -124,7 +129,7 @@ noremap <Down> <nop>
 noremap <Right> <nop>
 
 " map escape 
-inoremap jk <esc>l
+inoremap jk <esc>
 inoremap <esc> <nop>
 vnoremap jk <esc>
 vnoremap <esc> <nop>
