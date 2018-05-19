@@ -33,6 +33,7 @@ call plug#begin('~/.vim/plugged')
   Plug 'tpope/vim-fugitive'
   Plug 'tpope/vim-surround'
   Plug 'tpope/vim-commentary'
+  Plug 'tpope/vim-unimpaired'
   Plug 'Xuyuanp/nerdtree-git-plugin'
 
   " C plugins
@@ -113,8 +114,10 @@ nnoremap <leader>sp :set spell!
 nnoremap <localleader>cal :Calendar<CR>
 
 " Cycle buffers
-nnoremap <leader><Tab> :bnext!<CR>
-nnoremap <leader><S-Tab> :bprevious!<CR>
+nnoremap <silent> [b :bprevious<CR>
+nnoremap <silent> ]b :bnext<CR>
+nnoremap <silent> [B :bfirst<CR>
+nnoremap <silent> ]B :last<CR>
 
 " Change windows
 nmap <silent> <C-h> :wincmd h<CR>
