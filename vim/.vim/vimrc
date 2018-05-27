@@ -216,7 +216,7 @@ let g:session_autosave = 'no'
 let g:NERDTreeWinSize = 52
 au bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 " function to open NERDTree depending on filetype
-au vimenter * call s:CheckToOpenNERDTree()
+"au vimenter * call s:CheckToOpenNERDTree()
 
 function! s:CheckToOpenNERDTree() abort
 
@@ -278,13 +278,13 @@ endfunction
 nnoremap <leader>tl i= synopsis = <cr><cr><cr>= conclusions =<cr><cr><cr>= criticisms =<cr><cr><cr>= notes =<cr>== general ==<cr>* 
 
 " group meetings
-nnoremap <leader>tmg i= file = <cr>[[file:~/Documents/05_meetings/10_research_group/2018-/draft.odp]]<cr>[[file:~/Documents/05_meetings/10_research_group/2018-/report.pdf]]<cr><cr>= notes =<cr>* <cr>kka
+nnoremap <leader>tmg i= file = <cr>[[file:~/Documents/05_meetings/10_research_group/2018-/draft.odp]]<cr>[[file:~/Documents/05_meetings/10_research_group/2018-/report.pdf]]<cr><cr>= notes =<cr>* <cr>jkka
 
 " meetings
-nnoremap <leader>tmi i= file = <cr>[[file:~/Documents/05_meetings/00_individual/2018-/draft.odp]]<cr>[[file:~/Documents/05_meetings/00_individual/2018-/report.pdf]]<cr><cr>= notes =<cr>* <cr>kka
+nnoremap <leader>tmi i= file = <cr>[[file:~/Documents/05_meetings/00_individual/2018-/draft.odp]]<cr>[[file:~/Documents/05_meetings/00_individual/2018-/report.pdf]]<cr><cr>= notes =<cr>* <cr>jkka
 
 " meetings
-nnoremap <leader>tml i= notes =<cr>* <cr>kka
+nnoremap <leader>tml i= notes =<cr>* <cr>jkka
 
 " ------ "
 " vimtex "
