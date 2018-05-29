@@ -57,6 +57,7 @@ call plug#end()
 
 set foldmethod=syntax
 set belloff=all
+set hidden
 set nu
 set wrap linebreak
 set grepprg=grep\ -nH\ $ "Set grep to always print file-names*
