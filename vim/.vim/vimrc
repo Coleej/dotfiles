@@ -16,6 +16,7 @@ call plug#begin('~/.vim/plugged')
   Plug 'vim-airline/vim-airline'
   Plug 'vim-airline/vim-airline-themes'
   Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
+	Plug 'Xuyuanp/nerdtree-git-plugin'
   Plug 'lervag/vimtex'
   Plug 'Konfekt/FastFold'
   Plug 'vimwiki/vimwiki'
@@ -56,6 +57,7 @@ call plug#end()
 " **********
 " ***
 
+set nocompatible
 set foldmethod=syntax
 set belloff=all
 set hidden
@@ -102,6 +104,7 @@ let maplocalleader = "`"
 " command mode
 cnoremap <C-p> <Up>
 cnoremap <C-n> <Down>
+cnoremap <expr> %% getcmdtype() == ':' ? expand('%:h').'/' : '%%'
 
 " miscellaneous 
 nnoremap <leader>L :set list!<CR>
@@ -234,6 +237,10 @@ function! s:CheckToOpenNERDTree() abort
 
 endfunction
 
+" user NERDTree when opening directory
+autocmd StdinReadPre * let s:std_in=1
+autocmd VimEnter * if argc() == 1 && isdirectory(argv()[0]) && !exists("s:std_in") | exe 'NERDTree' argv()[0] | wincmd p | ene | endif
+
 " ------- "
 " vimwiki "
 " ------- "
@@ -313,6 +320,7 @@ let g:vimtex_fold_enabled=1
 nnoremap <leader>gc :Gcommit -a<cr>
 nnoremap <leader>gs :Gstatus<cr>
 nnoremap <leader>gp :Gpush<cr>
+nnoremap <leader>gl :Gpull<cr>
 
 " ----------"
 " syntastic "
