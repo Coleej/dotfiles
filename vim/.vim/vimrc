@@ -16,6 +16,7 @@ call plug#begin('~/.vim/plugged')
   Plug 'vim-airline/vim-airline'
   Plug 'vim-airline/vim-airline-themes'
   Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
+	Plug 'Xuyuanp/nerdtree-git-plugin'
   Plug 'lervag/vimtex'
   Plug 'Konfekt/FastFold'
   Plug 'vimwiki/vimwiki'
@@ -56,6 +57,7 @@ call plug#end()
 " **********
 " ***
 
+set nocompatible
 set foldmethod=syntax
 set belloff=all
 set hidden
@@ -234,6 +236,10 @@ function! s:CheckToOpenNERDTree() abort
 	endif
 
 endfunction
+
+" user NERDTree when opening directory
+autocmd StdinReadPre * let s:std_in=1
+autocmd VimEnter * if argc() == 1 && isdirectory(argv()[0]) && !exists("s:std_in") | exe 'NERDTree' argv()[0] | wincmd p | ene | endif
 
 " ------- "
 " vimwiki "
