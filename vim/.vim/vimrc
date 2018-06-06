@@ -320,6 +320,7 @@ let g:vimtex_fold_enabled=1
 nnoremap <leader>gc :Gcommit -a<cr>
 nnoremap <leader>gs :Gstatus<cr>
 nnoremap <leader>gp :Gpush<cr>
+nnoremap <leader>gl :Gpull<cr>
 
 " ----------"
 " syntastic "
