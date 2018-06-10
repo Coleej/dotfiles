@@ -524,5 +524,5 @@ hi Search ctermfg=white ctermbg=blue
 :hi VimwikiHeader2 ctermfg=4
 :hi VimwikiHeader3 ctermfg=10
 :hi VimwikiHeader4 ctermfg=140
-:hi VimwikiHeader5 ctermfg=20
+:hi VimwikiHeader5 ctermfg=8
 :hi VimwikiHeader6 ctermfg=1
