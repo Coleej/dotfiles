@@ -180,6 +180,10 @@ nnoremap <leader>vv :vsplit $MYVIMRC<cr>
 " Source vimrc
 nnoremap <leader>sv :source $MYVIMRC<cr> :echo "vimrc sourced"<cr>
 
+" Help
+nnoremap <leader>vh :vert help<cr>
+
+
 " Coding bindings
 onoremap p i(
 onoremap in( :<c-u>normal! f(vi(<cr>
