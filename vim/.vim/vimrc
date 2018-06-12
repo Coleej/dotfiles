@@ -129,6 +129,7 @@ nmap <silent> <C-h> :wincmd h<CR>
 nmap <silent> <C-k> :wincmd k<CR>
 nmap <silent> <C-j> :wincmd j<CR>
 nmap <silent> <C-l> :wincmd l<CR>
+nnoremap <C-p> <C-w>p
 
 " disable arrow keys
 noremap <Left> <nop>
@@ -160,6 +161,12 @@ vnoremap <leader>' iw<esc>`<i'<esc>`> a'
 nnoremap <leader>" viw<esc>a"<esc>hbi"<esc>lel
 nnoremap <leader>' viw<esc>a'<esc>hbi'<esc>lel
 
+" markup
+vnoremap <leader>_ iw<esc>`<i_<esc>`> a_
+nnoremap <leader>_ viw<esc>a_<esc>hbi_<esc>lel
+vnoremap <leader>* iw<esc>`<i*<esc>`> a*
+nnoremap <leader>* viw<esc>a*<esc>hbi*<esc>lel
+
 " move line of text up a line
 noremap _ d$k<S-p>0
 
@@ -172,6 +179,10 @@ nnoremap <leader>vv :vsplit $MYVIMRC<cr>
 
 " Source vimrc
 nnoremap <leader>sv :source $MYVIMRC<cr> :echo "vimrc sourced"<cr>
+
+" Help
+nnoremap <leader>vh :vert help<cr>
+
 
 " Coding bindings
 onoremap p i(
@@ -385,6 +396,7 @@ if has("autocmd")
     :autocmd!
     :au FileType tex let g:vimtex_quickfix_open_on_warning=1
     :au FileType tex setlocal spell spelllang=en_us
+		:au FileType tex setlocal nonu
     :au FileType tex nnoremap <localleader>lh <plug>(vimtex-compile-ss)
     :au FileType tex nnoremap <localleader>la <plug>(vimtex-lacheck)
     :au FileType tex nnoremap <localleader>t <plug>(vimtex-toc-toggle)
@@ -429,15 +441,15 @@ if has("autocmd")
     :au FileType vimwiki noremap <buffer> <localleader>i bi_<esc>ea_<esc>e
 
     " plugin function mappings
-    :au FileType vimwiki noremap <buffer> <leader>sw :VimwikiSplitLink<CR>
-    :au FileType vimwiki noremap <buffer> <leader>t :VimwikiTabnewLink<CR>
-    :au FileType vimwiki noremap <buffer> <leader>8 :VimwikiChangeSymbolTo *<CR>
-    :au FileType vimwiki noremap <buffer> <leader>* :VimwikiChangeSymbolInListTo *<CR>
-    :au FileType vimwiki noremap <buffer> <leader>_ :VimwikiChangeSymbolTo -<CR>
-    :au FileType vimwiki noremap <buffer> <leader>- :VimwikiChangeSymbolInListTo -<CR>
-    :au FileType vimwiki noremap <buffer> <leader>3 :VimwikiChangeSymbolTo #<CR>
-    :au FileType vimwiki noremap <buffer> <leader># :VimwikiChangeSymbolInListTo #<CR>
-		:au FileType vimwiki noremap <buffer> <leader>wq :VimwikiVSplitLink<CR>
+    :au FileType vimwiki noremap <buffer> <localleader>sw :VimwikiSplitLink<CR>
+    :au FileType vimwiki noremap <buffer> <localleader>t :VimwikiTabnewLink<CR>
+    :au FileType vimwiki noremap <buffer> <localleader>8 :VimwikiChangeSymbolTo *<CR>
+    :au FileType vimwiki noremap <buffer> <localleader>* :VimwikiChangeSymbolInListTo *<CR>
+    :au FileType vimwiki noremap <buffer> <localleader>_ :VimwikiChangeSymbolTo -<CR>
+    :au FileType vimwiki noremap <buffer> <localleader>- :VimwikiChangeSymbolInListTo -<CR>
+    :au FileType vimwiki noremap <buffer> <localleader>3 :VimwikiChangeSymbolTo #<CR>
+    :au FileType vimwiki noremap <buffer> <localleader># :VimwikiChangeSymbolInListTo #<CR>
+		:au FileType vimwiki noremap <buffer> <localleader>wq :VimwikiVSplitLink<CR>
   :augroup END
 
   " html
