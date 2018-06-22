@@ -113,6 +113,10 @@ cnoremap <C-p> <Up>
 cnoremap <C-n> <Down>
 cnoremap <expr> %% getcmdtype() == ':' ? expand('%:h').'/' : '%%'
 
+" datetimes
+nnoremap <f5> "=strftime("%c")<cr>P
+inoremap <f5> <C-R>=strftime("%c")<cr>
+
 " Toggles
 nnoremap <leader>D :NERDTreeToggle<CR>
 nnoremap <leader>h :set hlsearch!<CR>
@@ -304,13 +308,14 @@ endfunction
 nnoremap <leader>tl i= synopsis = <cr><cr><cr>= conclusions =<cr><cr><cr>= criticisms =<cr><cr><cr>= notes =<cr>== general ==<cr>* 
 
 " group meetings
-nnoremap <leader>tmg i= file = <cr>[[file:~/Documents/05_meetings/10_research_group/2018-/draft.odp]]<cr>[[file:~/Documents/05_meetings/10_research_group/2018-/report.pdf]]<cr><cr>= notes =<cr>* <cr>jkka
+nnoremap <leader>tmg i= files = <cr>[[file:~/Documents/05_meetings/10_research_group/<esc>"=strftime("%Y-%m-%d")<cr>pa/draft.odp]]<cr>[[file:~/Documents/05_meetings/10_research_group/<esc>"=strftime("%Y-%m-%d")<cr>pa/report.pdf]]<cr><cr>= notes =<cr>* 
 
 " meetings
-nnoremap <leader>tmi i= file = <cr>[[file:~/Documents/05_meetings/00_individual/2018-/draft.odp]]<cr>[[file:~/Documents/05_meetings/00_individual/2018-/report.pdf]]<cr><cr>= notes =<cr>* <cr>jkka
+nnoremap <leader>tmi i= files = <cr>[[file:~/Documents/05_meetings/00_individual/<esc>"=strftime("%Y-%m-%d")<cr>pa/draft.odp]]<cr>[[file:~/Documents/05_meetings/00_individual/<esc>"=strftime("%Y-%m-%d")<cr>pa/report.pdf]]<cr><cr>= notes =<cr>* 
+
 
 " meetings
-nnoremap <leader>tml i= notes =<cr>* <cr>jkka
+nnoremap <leader>tml i= notes =<cr>*  
 
 " ------ "
 " vimtex "
