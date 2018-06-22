@@ -894,6 +894,12 @@ LiDAR's
 sigmoid
 backbeach
 subtidal
+<<<<<<< HEAD
+orthoimagery
+Δt
+zref
+max
+=======
 ppkg
 Froude
 Bruun
@@ -902,6 +908,10 @@ gulfward
 Fenstermaker
 Garvin
 bayshore
+<<<<<<< HEAD
 HRO
 CNIR
 CHM's
+=======
+>>>>>>> 45bccc99c2e35447edcbdb43c4d410e60f9ccf1e
+>>>>>>> 6672adb5d83158d49f5878ff349696058d899270

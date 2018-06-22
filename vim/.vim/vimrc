@@ -1,5 +1,4 @@
 " Configuration file for vim
-set shell=bash
 
 "*******************************************
 " some commands                            "
@@ -105,6 +104,9 @@ endif
 " ***
 let mapleader = "\\"
 let maplocalleader = "`"
+
+" terminal
+nnoremap <leader>vt :vert term<cr>
 
 " command mode
 cnoremap <C-p> <Up>
@@ -455,6 +457,7 @@ if has("autocmd")
     :au FileType vimwiki noremap <buffer> <localleader>3 :VimwikiChangeSymbolTo #<CR>
     :au FileType vimwiki noremap <buffer> <localleader># :VimwikiChangeSymbolInListTo #<CR>
 		:au FileType vimwiki noremap <buffer> <localleader>wq :VimwikiVSplitLink<CR>
+		:au FileType vimwiki noremap <buffer> <localleader>we :VimwikiSplitLink<CR>
   :augroup END
 
   " html
