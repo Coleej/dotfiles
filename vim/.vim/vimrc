@@ -116,6 +116,7 @@ nnoremap <f5> "=strftime("%c")<cr>P
 inoremap <f5> <C-R>=strftime("%c")<cr>
 
 " Toggles
+set pastetoggle=<f6>  
 nnoremap <leader>D :NERDTreeToggle<CR>
 nnoremap <leader>h :set hlsearch!<CR>
 nnoremap <leader>nn :set nu!<CR>
