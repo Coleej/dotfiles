@@ -944,9 +944,15 @@ docstring
 foldmethod
 Penland
 Ritchie
+<<<<<<< HEAD
 DeWitt's
 x10
 e10
 deepwater
 Hydrodynamically
 DeWitt
+=======
+rasters
+NIR
+resample
+>>>>>>> 433a2032ca195d5c8b606bd87aa027703464bf85
