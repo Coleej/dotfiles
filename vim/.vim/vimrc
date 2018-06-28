@@ -407,6 +407,7 @@ if has("autocmd")
     :au FileType tex nnoremap <localleader>lh <plug>(vimtex-compile-ss)
     :au FileType tex nnoremap <localleader>la <plug>(vimtex-lacheck)
     :au FileType tex nnoremap <localleader>t <plug>(vimtex-toc-toggle)
+    :au FileType tex nnoremap <localleader>z <plug>(vimtex-view)z.
     :au FileType tex setlocal ts=2 sts=2 sw=2
   :augroup END
   
